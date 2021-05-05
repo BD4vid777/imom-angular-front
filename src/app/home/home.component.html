@@ -1,0 +1,39 @@
+<div class="grid-container">
+  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="300px">
+    <mat-grid-tile [colspan]="(cardLayout | async)!.welcome.cols" [rowspan]="(cardLayout | async)!.welcome.rows">
+      <mat-card class="dashboard-card">
+        <app-welcome-dash></app-welcome-dash>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(cardLayout | async)!.calendar.cols" [rowspan]="(cardLayout | async)!.calendar.rows">
+      <mat-card class="dashboard-card">
+        <app-calendar-dash></app-calendar-dash>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(cardLayout | async)!.notes.cols" [rowspan]="(cardLayout | async)!.notes.rows">
+      <mat-card class="dashboard-card">
+        <app-notes-dash></app-notes-dash>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(cardLayout | async)!.card4.cols" [rowspan]="(cardLayout | async)!.card4.rows">
+      <mat-card class="dashboard-card">
+        <app-counters-dash></app-counters-dash>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(cardLayout | async)!.forum.cols" [rowspan]="(cardLayout | async)!.forum.rows">
+      <mat-card class="dashboard-card">
+        <app-forum-dash></app-forum-dash>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(cardLayout | async)!.blog.cols" [rowspan]="(cardLayout | async)!.blog.rows">
+      <mat-card class="dashboard-card">
+        <app-blog-dash></app-blog-dash>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="(cardLayout | async)!.food.cols" [rowspan]="(cardLayout | async)!.food.rows">
+      <mat-card class="dashboard-card">
+        <app-food-dash></app-food-dash>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

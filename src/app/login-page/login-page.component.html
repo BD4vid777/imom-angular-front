@@ -1,0 +1,35 @@
+<mat-card class="login-card-container">
+  <div class="login-card-content">
+    <div class="welcome-message">
+      <img src="assets/Logo.png">
+      <h3>Welcome to the best Mom app You can find</h3>
+      <ul>
+        <li>Pregnancy/Parenthood phase</li>
+        <li>Calendar to keep up with everything</li>
+        <li>Food receipts for every meal and day</li>
+        <li>Knowledge</li>
+        <li>Tips</li>
+        <li>Tasks to complete</li>
+        <li>Forum</li>
+      </ul>
+      <h4 style="font-family: 'Reenie Beanie', cursive;">iMom - One to rule them all</h4>
+    </div>
+    <div class="login-container">
+      <div class="login-input-container">
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" [formControl]="email" required>
+          <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" (click)="logIn()">Login</button>
+    </div>
+  </div>
+</mat-card>

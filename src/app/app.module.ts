@@ -34,6 +34,8 @@ import { MatInputModule } from "@angular/material/input";
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { LoginPageComponent } from './login-page/login-page.component';
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -54,7 +56,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     ForumComponent,
     ContractionsComponent,
     KicksComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,7 +76,8 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatInputModule,
     MatSlideToggleModule,
     MatBadgeModule,
-    MatButtonToggleModule
+    MatButtonToggleModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

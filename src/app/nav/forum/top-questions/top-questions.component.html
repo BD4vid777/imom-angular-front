@@ -1,0 +1,9 @@
+<div *ngIf="topQuestions" class="top_questions">
+  <p>Top Questions</p>
+  <div  class="question_titles">
+    <ul class="top_questions">
+      <li *ngFor="let question of topQuestions">
+        <a [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</a>
+    </ul>
+  </div>
+</div>

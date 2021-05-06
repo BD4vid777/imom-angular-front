@@ -36,6 +36,12 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoginPageComponent } from './login-page/login-page.component';
 import {ReactiveFormsModule} from "@angular/forms";
+import { SearchQuestionComponent } from './nav/forum/search-question/search-question.component';
+import { UserTopicsComponent } from './nav/forum/user-topics/user-topics.component';
+import {HttpClientModule} from '@angular/common/http';
+import { LastAddedComponent } from './nav/forum/last-added/last-added.component';
+import { TopQuestionsComponent } from './nav/forum/top-questions/top-questions.component';
+import { ForumQuestionComponent } from './nav/forum/forum-question/forum-question.component';
 
 
 @NgModule({
@@ -58,6 +64,11 @@ import {ReactiveFormsModule} from "@angular/forms";
     KicksComponent,
     HeaderComponent,
     LoginPageComponent,
+    SearchQuestionComponent,
+    UserTopicsComponent,
+    LastAddedComponent,
+    TopQuestionsComponent,
+    ForumQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -77,7 +88,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatSlideToggleModule,
     MatBadgeModule,
     MatButtonToggleModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,7 +5,7 @@ export interface ForumQuestion {
   questionTitle: string;
   questionText: string;
   numberOfAnswers: number;
-  likes: number;
+  likesQuantity: number;
   date: string;
   forumAnswer: Answer[];
 }

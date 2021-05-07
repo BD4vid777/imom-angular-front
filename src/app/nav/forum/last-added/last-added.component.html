@@ -1,0 +1,10 @@
+<div>
+  <p>Last Added</p>
+  <ul>
+    <li *ngFor="let question of lastAddedQuestion">
+        <a [routerLink] = "['/forum-question', question.id]">
+          {{question.questionTitle}}
+        </a>
+    </li>
+  </ul>
+</div>

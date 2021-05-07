@@ -1,3 +1,7 @@
 <mat-card class="view-port">
-
+  <app-search-question></app-search-question>
+  <a class="add_q_button" href="forum/add-question">ADD QUESTION</a>
+  <app-user-topics [userQuestions] = "userQuestions"></app-user-topics>
+  <app-last-added [lastAddedQuestion] = "lastAddedQuestions" class="last_added"></app-last-added>
+  <app-top-questions [topQuestions] = "forumQuestions" class="top_questions"></app-top-questions>
 </mat-card>

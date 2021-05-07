@@ -5,6 +5,7 @@ import { HomeComponent } from "./home/home.component";
 import { CalendarComponent } from './nav/calendar/calendar.component';
 import { BlogComponent } from './nav/blog/blog.component';
 import { ForumComponent } from './nav/forum/forum.component';
+import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.component';
 
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'calendar', component: CalendarComponent},
   {path: 'blog', component: BlogComponent},
   {path: 'forum', component: ForumComponent},
+  {path: 'forum-question/:id', component: ForumQuestionComponent},
 ];
 
 @NgModule({

@@ -39,6 +39,12 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { NotesComponent } from './home/notes-dash/notes/notes.component';
 import { MatDialogModule } from "@angular/material/dialog";
+import { SearchQuestionComponent } from './nav/forum/search-question/search-question.component';
+import { UserTopicsComponent } from './nav/forum/user-topics/user-topics.component';
+import {HttpClientModule} from '@angular/common/http';
+import { LastAddedComponent } from './nav/forum/last-added/last-added.component';
+import { TopQuestionsComponent } from './nav/forum/top-questions/top-questions.component';
+import { ForumQuestionComponent } from './nav/forum/forum-question/forum-question.component';
 
 
 @NgModule({
@@ -62,7 +68,12 @@ import { MatDialogModule } from "@angular/material/dialog";
     HeaderComponent,
     LoginPageComponent,
     NotesComponent,
-    NotesDashDialog
+    NotesDashDialog,
+    SearchQuestionComponent,
+    UserTopicsComponent,
+    LastAddedComponent,
+    TopQuestionsComponent,
+    ForumQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,7 +96,8 @@ import { MatDialogModule } from "@angular/material/dialog";
     ReactiveFormsModule,
     FormsModule,
     MatSnackBarModule,
-    MatDialogModule
+    MatDialogModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

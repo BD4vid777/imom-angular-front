@@ -9,7 +9,6 @@ import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.
 import {NewQuestionComponent} from './nav/forum/new-question/new-question.component';
 
 const routes: Routes = [
-  // {path: '**', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'food', component: FoodComponent},
   {path: 'calendar', component: CalendarComponent},

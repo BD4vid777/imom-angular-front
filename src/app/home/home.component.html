@@ -1,5 +1,5 @@
 <div class="grid-container">
-  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="300px">
+  <mat-grid-list cols="{{ (cardLayout | async)?.columns }}" rowHeight="28vh">
     <mat-grid-tile [colspan]="(cardLayout | async)!.welcome.cols" [rowspan]="(cardLayout | async)!.welcome.rows">
       <mat-card class="dashboard-card">
         <app-welcome-dash></app-welcome-dash>

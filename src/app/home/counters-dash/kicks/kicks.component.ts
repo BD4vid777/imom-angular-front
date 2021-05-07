@@ -7,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class KicksComponent implements OnInit {
 
+  kicksCount = 0;
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  countKicks() {
+    this.kicksCount++;
+  }
 }

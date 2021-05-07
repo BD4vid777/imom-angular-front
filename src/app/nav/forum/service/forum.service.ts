@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import {WebRequestService} from '../../../web-request.service';
 import {ForumQuestion} from '../model/forumQuestion';
 import {Observable} from 'rxjs';
+import {newQuestion} from "../model/newQuestion";
+import {catchError} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +29,9 @@ export class ForumService {
 
   getLastAddedQuestions(): Observable<ForumQuestion[]>  {
     return this.webRequestService.get('forum-questions/last-added');
+  }
+
+  postNewQuestion(question: newQuestion): Observable<newQuestion>{
+    return this.webRequestService.post('forum-questions/add_question', question);
   }
 }

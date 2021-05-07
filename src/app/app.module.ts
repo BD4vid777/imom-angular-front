@@ -45,6 +45,7 @@ import {HttpClientModule} from '@angular/common/http';
 import { LastAddedComponent } from './nav/forum/last-added/last-added.component';
 import { TopQuestionsComponent } from './nav/forum/top-questions/top-questions.component';
 import { ForumQuestionComponent } from './nav/forum/forum-question/forum-question.component';
+import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
 
 
 @NgModule({
@@ -74,6 +75,7 @@ import { ForumQuestionComponent } from './nav/forum/forum-question/forum-questio
     LastAddedComponent,
     TopQuestionsComponent,
     ForumQuestionComponent,
+    NewQuestionComponent,
   ],
   imports: [
     BrowserModule,

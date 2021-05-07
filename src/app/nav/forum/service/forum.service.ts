@@ -31,7 +31,7 @@ export class ForumService {
     return this.webRequestService.get('forum-questions/last-added');
   }
 
-  postNewQuestion(question: newQuestion): Observable<newQuestion>{
-    return this.webRequestService.post('forum-questions/add_question', question);
+  postNewQuestion(question: newQuestion, userId: string): Observable<any> {
+    return this.webRequestService.post('forum-questions/add_question' + '?userId=' + userId, question);
   }
 }

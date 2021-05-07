@@ -4,6 +4,7 @@ import {ReactiveFormsModule, FormsModule, FormGroup, FormControl, Validators, Fo
 import {ForumQuestionComponent} from '../forum-question/forum-question.component';
 import {newQuestion} from '../model/newQuestion';
 import {ForumService} from '../service/forum.service';
+import {HttpParams} from '@angular/common/http';
 
 @Component({
   selector: 'app-new-question',
@@ -12,10 +13,12 @@ import {ForumService} from '../service/forum.service';
 })
 export class NewQuestionComponent implements OnInit {
   // public newQuestion: ForumQuestion;
+  public newQuestion: any;
   public formSubmitted: boolean;
   questionForm = new FormGroup({
     questionTitle: new FormControl(''),
-    questionText: new FormControl(''),
+    question: new FormControl(''),
+
   });
 
   constructor(private forumService: ForumService) {
@@ -33,12 +36,14 @@ submitted(): void {
   for (const field in this.questionForm.controls) {
     // tslint:disable-next-line:prefer-const
     question = {
+      userId: '1',
       questionTitle: this.questionForm.controls['questionTitle'].value,
-      questionText: this.questionForm.controls['questionText'].value,
+      question: this.questionForm.controls['question'].value,
     };
-    console.log(question.questionText, question.questionTitle);
+    console.log(question.question, question.questionTitle);
   }
+
   // @ts-ignore
-  this.forumService.postNewQuestion(question);
+  this.forumService.postNewQuestion(question, '1').subscribe();
 }
 }

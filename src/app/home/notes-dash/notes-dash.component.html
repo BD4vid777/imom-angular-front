@@ -1,1 +1,12 @@
-<p>notes-dash works!</p>
+<div class="notes-dash-container">
+  <div class="note-field">
+    <mat-form-field class="notes-input" appearance="outline">
+      <mat-label>What are your thoughts today {{username}}?</mat-label>
+      <textarea matInput #userNote></textarea>
+    </mat-form-field>
+  </div>
+  <div class="notes-buttons">
+    <button mat-button (click)="openAllNotes()">View All</button>
+    <button mat-raised-button color="primary" (click)="saveNote(userNote.value)">Save note</button>
+  </div>
+</div>

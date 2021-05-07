@@ -7,7 +7,6 @@ import { BlogComponent } from './nav/blog/blog.component';
 import { ForumComponent } from './nav/forum/forum.component';
 
 const routes: Routes = [
-  {path: '**', component: HomeComponent},
   {path: 'home', component: HomeComponent},
   {path: 'food', component: FoodComponent},
   {path: 'calendar', component: CalendarComponent},

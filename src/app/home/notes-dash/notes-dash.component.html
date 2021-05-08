@@ -6,7 +6,7 @@
     </mat-form-field>
   </div>
   <div class="notes-buttons">
-    <button mat-button (click)="openAllNotes()">View All</button>
+    <button mat-button (click)="openAllNotes()">View All ({{userNotes.length}})</button>
     <button mat-raised-button color="primary" (click)="saveNote(userNote.value)">Save note</button>
   </div>
 </div>

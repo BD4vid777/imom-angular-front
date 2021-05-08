@@ -8,6 +8,7 @@ import { ForumComponent } from './nav/forum/forum.component';
 import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
   {path: 'food', component: FoodComponent},
   {path: 'calendar', component: CalendarComponent},

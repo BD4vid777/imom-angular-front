@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import {Note} from "../../models/note.object";
 
@@ -30,8 +30,8 @@ export class NotesDashComponent implements OnInit {
       this.snackbar.open('Note saved successfully', '',{
         duration: 3000
       });
-    } else {this.snackbar.open('You cannot save empty note', '',{
-      duration: 2000
+    } else {this.snackbar.open('You cannot save empty note', 'ALERT!',{
+      duration: 3000
     })
   }}
 
@@ -57,6 +57,13 @@ export class NotesDashComponent implements OnInit {
 export class NotesDashDialog {
 
   constructor(
-    public dialogRef: MatDialogRef<NotesDashDialog>,
     @Inject(MAT_DIALOG_DATA) public data: any) {}
+
+  deleteNote(note: Note) {
+    // return null;
+    const index: number = this.data.notes.indexOf(note);
+    if (index !== -1) {
+      this.data.notes.splice(index, 1);
+    }
+  }
 }

@@ -1,1 +1,31 @@
-<p>blog-dash works!</p>
+<div>
+  <div class="chips-container">
+    <mat-chip-list *ngFor="let chip of categories">
+      <mat-chip color="primary" (focus)="selected(chip)" (focusout)="categorySelected=''">{{chip}}</mat-chip>
+    </mat-chip-list>
+  </div>
+  <div>
+    <div *ngIf="categorySelected === ''; else noSelected" class="blog-dash-container">
+      <div *ngFor="let post of blogPosts" >
+        <mat-card class="blog-post-container">
+          <mat-card-title>{{post.title}}</mat-card-title>
+          <mat-card-content>{{post.text}}</mat-card-content><br>
+          <mat-card-footer>{{post.dateCreated}}</mat-card-footer>
+        </mat-card>
+      </div>
+    </div>
+    <ng-template #noSelected>
+      <div class="blog-dash-container">
+        <div *ngFor="let post of blogPosts" >
+          <div *ngIf="post.category === categorySelected">
+            <mat-card class="blog-post-container">
+              <mat-card-title>{{post.title}}</mat-card-title>
+              <mat-card-content>{{post.text}}</mat-card-content><br>
+              <mat-card-footer>{{post.dateCreated}}</mat-card-footer>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+table {
+  border-radius: 10%;
+  width: 100%;
+  border: 2;
+}
+
+th {
+  font-size: large;
+  color: darkblue;
+}
+
+.food-title {
+  text-align: center;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.meal-title {
+  font-size: 20px;
+}
+
+.meal-description {
+  font-size: 13px;
+}

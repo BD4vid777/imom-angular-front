@@ -17,9 +17,10 @@ export class WebRequestService {
     return this.http.get(`${this.ROOT_URL}/${url}`);
   }
 
-  // post(url: string, payload: Object) {
-  //   return this.http.post(`${this.ROOT_URL}/${url}`, payload);
-  // }
+  // tslint:disable-next-line:ban-types typedef
+  post(url: string, payload: Object) {
+    return this.http.post(`${this.ROOT_URL}/${url}`, payload);
+  }
   //
   // patch(url: string, payload: Object) {
   //   return this.http.patch(`${this.ROOT_URL}/${url}`, payload);
@@ -28,4 +29,5 @@ export class WebRequestService {
   // delete(url: string) {
   //   return this.http.delete(`${this.ROOT_URL}/${url}`);
   // }
+
 }

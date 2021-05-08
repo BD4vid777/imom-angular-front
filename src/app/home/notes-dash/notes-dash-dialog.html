@@ -1,0 +1,13 @@
+<div class="dialog-container">
+  <h1 mat-dialog-title>Hi {{data.name}}! These are your notes.</h1>
+  <div mat-dialog-content>
+    <div *ngFor="let note of data.notes">
+      <mat-card class="single-note">
+        <p>{{note.date}}</p>
+        <h3>{{note.content}}</h3>
+      </mat-card>
+    </div>
+    <br>
+    <h3>Click outside to close</h3>
+  </div>
+</div>

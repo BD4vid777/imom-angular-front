@@ -1,1 +1,8 @@
-<p>contractions works!</p>
+<div class="contractions-container">
+  <button mat-raised-button color="primary" (click)="countContraction()">Hold</button>
+  <h1>{{contractionsCount}}</h1>
+  <div class="contractions-data">
+    <p>Last one: {{timeStamp}}</p>
+    <p>Duration: {{frequency | number : '1.2-2'}} sec/contraction </p>
+  </div>
+</div>

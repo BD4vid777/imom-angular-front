@@ -47,6 +47,7 @@ import { TopQuestionsComponent } from './nav/forum/top-questions/top-questions.c
 import { ForumQuestionComponent } from './nav/forum/forum-question/forum-question.component';
 import { MatChipsModule } from '@angular/material/chips';
 
+import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
 
 
 @NgModule({
@@ -76,6 +77,7 @@ import { MatChipsModule } from '@angular/material/chips';
     LastAddedComponent,
     TopQuestionsComponent,
     ForumQuestionComponent,
+    NewQuestionComponent,
   ],
   imports: [
     BrowserModule,

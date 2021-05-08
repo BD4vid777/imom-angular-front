@@ -6,6 +6,7 @@ import { CalendarComponent } from './nav/calendar/calendar.component';
 import { BlogComponent } from './nav/blog/blog.component';
 import { ForumComponent } from './nav/forum/forum.component';
 import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.component';
+import {NewQuestionComponent} from './nav/forum/new-question/new-question.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'forum', component: ForumComponent},
   {path: 'forum-question/:id', component: ForumQuestionComponent},
+  {path: 'new-question', component: NewQuestionComponent},
 ];
 
 @NgModule({

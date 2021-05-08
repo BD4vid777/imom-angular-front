@@ -1,1 +1,25 @@
-<p>food-dash works!</p>
+<div class="chips-container">
+  <mat-chip-list *ngFor="let day of days">
+    <mat-chip style="background-color: #3f51b5; color: white; font-size: x-small;" (focus)="selectDay(day)">{{day}}</mat-chip>
+  </mat-chip-list>
+</div>
+
+<div style="display: flex">
+  <div class="meals-chips-container">
+    <mat-chip-list *ngFor="let meal of meals">
+      <mat-chip style="background-color: #3f51b5; color: white; font-size: x-small;" (focus)="selectMeal(meal)">{{meal}}</mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="all-meals">
+    <div *ngFor="let food of foodList">
+      <div *ngIf="food.day.includes(daySelected)">
+        <div *ngIf="food.meal === mealSelected" >
+          <mat-card class="meal-container">
+            <mat-card-title>{{food.name}}</mat-card-title>
+            <mat-card-content>{{food.description}}</mat-card-content>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

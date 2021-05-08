@@ -331,3 +331,25 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   }
 }
 
+.meals-chips-container {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  left: 0;
+  width: fit-content;
+}
+
+.all-meals {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 11px auto;
+
+  .meal-container {
+
+  }
+}
+

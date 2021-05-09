@@ -10,8 +10,8 @@ export class FoodDashComponent implements OnInit {
   days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   meals = ['Breakfast', '2nd Breakfast', 'Lunch', 'Dinner', 'Supper'];
 
-  daySelected = '';
-  mealSelected = '';
+  daySelected = 'Monday';
+  mealSelected = 'Breakfast';
 
   foodList = [
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Breakfast", day: ['Monday', "Friday", 'Saturday']},
@@ -20,9 +20,9 @@ export class FoodDashComponent implements OnInit {
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "2nd Breakfast", day: ['Monday', "Thursday", 'Saturday']},
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Lunch", day: ['Monday', "Friday", 'Saturday']},
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Lunch", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Dinner", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Dinner", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Dinner", day: ['Monday', "Friday", 'Saturday']},
+    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Dinner", day: ['Monday']},
+    {name: "Scrumbled Eggs nr2", description: "Scrumble and pan", meal: "Dinner", day: ['Monday']},
+    {name: "Scrumbled Eggs nr3", description: "Scrumble and pan", meal: "Dinner", day: ['Monday', "Friday", 'Saturday']},
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Supper", day: ['Monday', "Friday", 'Saturday']},
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Supper", day: ['Monday', "Friday", 'Saturday']},
     {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Supper", day: ['Monday', "Friday", 'Saturday']},

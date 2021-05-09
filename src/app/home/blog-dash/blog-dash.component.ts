@@ -12,10 +12,12 @@ export class BlogDashComponent implements OnInit {
 
   categorySelected = '';
 
+  longpost = "Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, Lorem ipsum, "
+
   blogDate = new Date(Date.now()).toLocaleDateString('en-GB');
 
   blogPosts: Array<BlogPost> = [
-    {id: 1, title: "Artykuł Mamy", text: "Lorem ipsum dolor sit", category: "Mom", dateCreated: this.blogDate},
+    {id: 1, title: "Artykuł Mamy", text: this.longpost, category: "Mom", dateCreated: this.blogDate},
     {id: 2, title: "Artykuł taty", text: "I jakiś tekst znowu", category: "Dad", dateCreated: this.blogDate},
     {id: 3, title: "Artykuł dziecka", text: "Co by tu zbroić", category: "Child", dateCreated: this.blogDate},
     {id: 4, title: "Artykuł dziecka drugi", text: "Co by tu zbroić", category: "Child", dateCreated: this.blogDate},

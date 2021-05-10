@@ -26,8 +26,8 @@ export class WebRequestService {
   //   return this.http.patch(`${this.ROOT_URL}/${url}`, payload);
   // }
   //
-  // delete(url: string) {
-  //   return this.http.delete(`${this.ROOT_URL}/${url}`);
-  // }
+  delete(url: string): Observable<any>{
+    return this.http.delete(`${this.ROOT_URL}/${url}`);
+  }
 
 }

@@ -4,6 +4,11 @@ import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
 import {ForumQuestion} from '../nav/forum/model/forumQuestion';
 import {BlogPost} from '../models/blog-post.object';
 import {BlogService} from '../nav/blog/service/blog.service';
+import {FoodService} from '../nav/food/service/food.service';
+import {Food} from '../nav/food/model/food';
+import {HomeService} from './service/home.service';
+import {PregnancyInfo} from '../models/pregnancyInfo';
+import {Note} from '../models/note.object';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +18,9 @@ import {BlogService} from '../nav/blog/service/blog.service';
 export class HomeComponent implements OnInit{
 
   blogPosts: BlogPost[] = [];
+  foodList: Food[] = [];
+  kicksCount!: number;
+  userNotes: Note[] = [];
 
   /** Based on the screen size, switch from standard to one column per row */
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
@@ -42,9 +50,15 @@ export class HomeComponent implements OnInit{
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver, private blogServce: BlogService) {}
+
+
+  constructor(private breakpointObserver: BreakpointObserver, private blogService: BlogService, private foodService: FoodService,
+              private homeService: HomeService) {}
 
   ngOnInit(): void {
-    this.blogServce.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
+    this.homeService.getKicksCount('1').subscribe(kicksCount => this.kicksCount = kicksCount);
+    this.blogService.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
+    this.foodService.getFood().subscribe(foodList => this.foodList = foodList);
+    this.homeService.getUserNotes('1').subscribe(userNotes => this.userNotes = userNotes);
   }
 }

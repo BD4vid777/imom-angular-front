@@ -4,6 +4,7 @@
   <div *ngIf="question">
     <p>{{question.questionTitle}}</p>
     <p>{{question.likesQuantity}}</p>
+    <p>{{question.numberOfAnswers}}</p>
     <div *ngFor="let answer of question.forumAnswer">
       <p>{{answer.answer}}</p>
       <p>{{answer.likesQuantity}}</p>

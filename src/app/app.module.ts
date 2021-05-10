@@ -48,6 +48,7 @@ import { ForumQuestionComponent } from './nav/forum/forum-question/forum-questio
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
+import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { NewQuestionComponent } from './nav/forum/new-question/new-question.comp
     TopQuestionsComponent,
     ForumQuestionComponent,
     NewQuestionComponent,
+    BlogArticleComponent,
   ],
   imports: [
     BrowserModule,

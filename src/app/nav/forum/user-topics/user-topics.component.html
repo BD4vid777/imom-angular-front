@@ -3,5 +3,6 @@
   <ul class=" " >
     <li *ngFor="let question of userQuestions">
       <a [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</a>
+      <p>{{question.likesQuantity}}</p>
   </ul>
 </div>

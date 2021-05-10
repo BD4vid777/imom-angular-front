@@ -1,2 +1,2 @@
 <app-contractions></app-contractions>
-<app-kicks></app-kicks>
+<app-kicks [kicksCount]="kicksCount" (countChanged)="countChangedHandler($event)"></app-kicks>

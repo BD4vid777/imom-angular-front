@@ -3,5 +3,5 @@ export interface BlogPost {
   title: string;
   text: string;
   category: string;
-  dateCreated: string;
+  date: string;
 }

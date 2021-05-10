@@ -1,13 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointObserver } from '@angular/cdk/layout';
+import {ForumQuestion} from '../nav/forum/model/forumQuestion';
+import {BlogPost} from '../models/blog-post.object';
+import {BlogService} from '../nav/blog/service/blog.service';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit{
+
+  blogPosts: BlogPost[] = [];
+
   /** Based on the screen size, switch from standard to one column per row */
   cardLayout = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
@@ -36,5 +42,9 @@ export class HomeComponent {
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private blogServce: BlogService) {}
+
+  ngOnInit(): void {
+    this.blogServce.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
+  }
 }

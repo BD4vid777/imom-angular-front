@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {BlogPost} from '../../models/blog-post.object';
+import {Food} from '../../nav/food/model/food';
 
 @Component({
   selector: 'app-food-dash',
@@ -7,26 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodDashComponent implements OnInit {
 
+  @Input() foodList?: Food[];
+
   days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
   meals = ['Breakfast', '2nd Breakfast', 'Lunch', 'Dinner', 'Supper'];
 
   daySelected = 'Monday';
   mealSelected = 'Breakfast';
-
-  foodList = [
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Breakfast", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Oat Meal", description: "Mix with milk", meal: "Breakfast", day: ['Monday', "Tuesday', 'Wednesday", 'Sunday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "2nd Breakfast", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "2nd Breakfast", day: ['Monday', "Thursday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Lunch", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Lunch", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Dinner", day: ['Monday']},
-    {name: "Scrumbled Eggs nr2", description: "Scrumble and pan", meal: "Dinner", day: ['Monday']},
-    {name: "Scrumbled Eggs nr3", description: "Scrumble and pan", meal: "Dinner", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Supper", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Supper", day: ['Monday', "Friday", 'Saturday']},
-    {name: "Scrumbled Eggs", description: "Scrumble and pan", meal: "Supper", day: ['Monday', "Friday", 'Saturday']},
-    ]
 
 
   constructor() { }

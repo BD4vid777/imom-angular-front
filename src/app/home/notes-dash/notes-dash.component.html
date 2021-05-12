@@ -5,8 +5,8 @@
       <textarea matInput #userNote></textarea>
     </mat-form-field>
   </div>
-  <div class="notes-buttons">
-    <button mat-button (click)="openAllNotes()">View All ({{userNotes.length}})</button>
+  <div  class="notes-buttons">
+    <button *ngIf="userNotes" mat-button (click)="openAllNotes()">View All ({{userNotes.length}})</button>
     <button mat-raised-button color="primary" (click)="saveNote(userNote.value)">Save note</button>
   </div>
 </div>

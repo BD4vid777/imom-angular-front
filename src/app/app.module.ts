@@ -49,6 +49,7 @@ import { MatChipsModule } from '@angular/material/chips';
 
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
 import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.component';
+import {DatePipe} from '@angular/common';
 
 
 @NgModule({
@@ -106,7 +107,7 @@ import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.compo
     HttpClientModule,
     MatChipsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 // @ts-ignore

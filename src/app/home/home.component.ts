@@ -61,4 +61,8 @@ export class HomeComponent implements OnInit{
     this.foodService.getFood().subscribe(foodList => this.foodList = foodList);
     this.homeService.getUserNotes('1').subscribe(userNotes => this.userNotes = userNotes);
   }
+
+  onChange(data: string) {
+    this.ngOnInit();
+  }
 }

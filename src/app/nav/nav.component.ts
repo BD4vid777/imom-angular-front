@@ -2,6 +2,7 @@ import {Component, EventEmitter, Output} from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
+import {TokenStorageService} from '../_services/token-storage.service';
 
 @Component({
   selector: 'app-nav',
@@ -19,9 +20,10 @@ export class NavComponent {
   @Output()
   isLoggedIn = new EventEmitter<boolean>();
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  constructor(private breakpointObserver: BreakpointObserver, private tokenStorageService: TokenStorageService) {}
 
   logOut() {
-    this.isLoggedIn.emit(true);
+    this.tokenStorageService.signOut();
+    window.location.reload();
   }
 }

@@ -49,6 +49,11 @@ import { MatChipsModule } from '@angular/material/chips';
 
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
 import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.component';
+import {DatePipe} from '@angular/common';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import {AuthGuard} from './authGuard/authGuard';
 
 
 @NgModule({
@@ -80,6 +85,8 @@ import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.compo
     ForumQuestionComponent,
     NewQuestionComponent,
     BlogArticleComponent,
+    RegisterComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -106,8 +113,8 @@ import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.compo
     HttpClientModule,
     MatChipsModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [authInterceptorProviders, DatePipe, AuthGuard],
+  bootstrap: [AppComponent],
 })
 // @ts-ignore
 export class AppModule { }

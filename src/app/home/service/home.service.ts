@@ -1,0 +1,36 @@
+import { Injectable } from '@angular/core';
+import {WebRequestService} from '../../web-request.service';
+import {Observable} from 'rxjs';
+import {BlogPost} from '../../models/blog-post.object';
+import {newQuestion} from '../../nav/forum/model/newQuestion';
+import {PregnancyInfo} from '../../models/pregnancyInfo';
+import {Note} from '../../models/note.object';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class HomeService {
+
+  constructor(private webRequestService: WebRequestService) {
+  }
+
+  getUserNotes(userId: string): Observable<Note[]> {
+    return this.webRequestService.get('diary/' + userId);
+  }
+
+  getKicksCount(userId: string): Observable<number> {
+    return this.webRequestService.get('users/' + userId + '/kicks-count');
+  }
+
+  increaseKicksCount(userId: string): Observable<any> {
+    return this.webRequestService.post('users/' + userId + '/increase-kicks', '');
+  }
+
+  postNewNote(note: Note, userId: string): Observable<any> {
+    return this.webRequestService.post('diaries' + '?userId=' + userId, note);
+  }
+
+  deleteNote(noteId: string): Observable<any> {
+    return this.webRequestService.delete('dairy/delete/' + noteId);
+  }
+}

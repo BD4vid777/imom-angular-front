@@ -12,7 +12,7 @@
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.notes.cols" [rowspan]="(cardLayout | async)!.notes.rows">
       <mat-card class="dashboard-card">
-        <app-notes-dash [userNotes]="userNotes"></app-notes-dash>
+        <app-notes-dash [userNotes]="userNotes" (demo)="onChange($event)"></app-notes-dash>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.card4.cols" [rowspan]="(cardLayout | async)!.card4.rows">

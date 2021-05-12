@@ -4,7 +4,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {Note} from "../../models/note.object";
 import {Food} from '../../nav/food/model/food';
 import {HomeService} from '../service/home.service';
-import {formatDate} from '@angular/common';
+import {DatePipe, formatDate} from '@angular/common';
 import {BehaviorSubject} from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -17,9 +17,11 @@ export class NotesDashComponent implements OnInit {
 
   username = "Agnieszka";
   @Input() userNotes!: Note[];
+  @Output() demo: EventEmitter<string> = new EventEmitter();
 
   constructor(private snackbar: MatSnackBar, public dialog: MatDialog,
-              private homeService: HomeService, private router: Router) { }
+              private homeService: HomeService, private router: Router,
+              private datePipe: DatePipe) { }
 
   ngOnInit(): void {
   }
@@ -27,19 +29,23 @@ export class NotesDashComponent implements OnInit {
   saveNote(value: string) {
     if (value != "") {
       let newNote: Note;
+      const date = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
       newNote = ({
         id: '1',
         userId: '1',
         description: value,
-        date: formatDate(new Date(), 'yyyy-MM-dd', 'en')
+        // @ts-ignore
+        date: date + ''
         // date: new Date().toLocaleString(),
       });
+      console.log(date);
 
       // this.userNotes.push(newNote);
       if (this.userNotes) {
         this.homeService.postNewNote(newNote, '1').subscribe();
       }
-      console.log(this.userNotes);
+      this.demo.emit('data change');
+      console.log(newNote);
       this.snackbar.open('Note saved successfully', '',{
         duration: 3000
       });

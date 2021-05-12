@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -48,8 +48,9 @@ import { ForumQuestionComponent } from './nav/forum/forum-question/forum-questio
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
-import { TasksComponent } from './home/calendar-dash/tasks/tasks.component';
+import {TasksComponent, TasksDialog} from './home/calendar-dash/tasks/tasks.component';
 import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-task.component';
+import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
 
 
 @NgModule({
@@ -82,6 +83,8 @@ import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-tas
     NewQuestionComponent,
     TasksComponent,
     CalendarTaskComponent,
+    TasksDialog,
+    NewTaskComponent,
   ],
   imports: [
     BrowserModule,

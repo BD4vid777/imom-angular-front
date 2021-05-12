@@ -39,7 +39,7 @@ export class NotesDashComponent implements OnInit {
         // date: new Date().toLocaleString(),
       });
       console.log(date);
-
+/
       // this.userNotes.push(newNote);
       if (this.userNotes) {
         this.homeService.postNewNote(newNote, '1').subscribe();

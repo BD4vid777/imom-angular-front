@@ -1,7 +1,7 @@
 // tslint:disable-next-line:class-name
 export interface newTask {
   userId: string;
-  taskTitle: string;
+  taskName: string;
   taskText: string;
   taskStatus: boolean;
 }

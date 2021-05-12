@@ -8,6 +8,7 @@ import { ForumComponent } from './nav/forum/forum.component';
 import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.component';
 import {NewQuestionComponent} from './nav/forum/new-question/new-question.component';
 import {NewTaskComponent} from './home/calendar-dash/new-task/new-task.component';
+import {BlogArticleComponent} from './nav/blog/blog-article/blog-article.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path: 'blog', component: BlogComponent},
   {path: 'forum', component: ForumComponent},
   {path: 'forum-question/:id', component: ForumQuestionComponent},
+  {path: 'blog-article/:id', component: BlogArticleComponent},
   {path: 'new-question', component: NewQuestionComponent},
   {path: 'new-task', component: NewTaskComponent}
 ];

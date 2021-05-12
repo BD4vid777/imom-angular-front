@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Inject, Injectable, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {newTask} from '../../../nav/calendar/model/newTask';
 import {CalendarService} from '../../../nav/calendar/service/calendar-task.service';
+import {Router} from "@angular/router";
+import {CalendarDashComponent} from "../calendar-dash.component";
 
 @Component({
   selector: 'app-new-task',
@@ -12,12 +14,12 @@ export class NewTaskComponent implements OnInit {
   public newTask: any;
   public formSubmitted: boolean;
   taskForm = new FormGroup({
-    taskTitle: new FormControl(''),
+    taskName: new FormControl(''),
     taskText: new FormControl(''),
 
   });
 
-  constructor(private calendarTaskService: CalendarService) {
+  constructor(private calendarTaskService: CalendarService, private router: Router) {
     this.formSubmitted = false;
   }
 
@@ -33,11 +35,14 @@ export class NewTaskComponent implements OnInit {
       // tslint:disable-next-line:prefer-const
       task = {
         userId: '1',
-        taskTitle: this.taskForm.controls.taskTitle.value,
+        taskName: this.taskForm.controls.taskName.value,
         taskText: this.taskForm.controls.taskText.value,
         taskStatus: false,
       };
-      console.log(task.taskText);
+      console.log(task.taskText, task.taskName);
+      // this.calendarComponent.refreshTasks();
+      const navigationDetails: string[] = ['/home'];
+      this.router.navigate(navigationDetails);
     }
 
     // @ts-ignore

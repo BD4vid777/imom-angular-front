@@ -19,6 +19,10 @@ export class CalendarService {
   }
 
   postNewTask(task: newTask, userId: string): Observable<any> {
-    return this.webRequestService.post('/users/' + '?userId=' + userId + '/tasks-before-birth', task);
+    return this.webRequestService.post('users/' + userId + '/tasks-before-birth', task);
+  }
+
+  deleteTask(taskId: string): Observable<any> {
+    return this.webRequestService.delete('tasks-before-birth/delete/' + taskId);
   }
 }

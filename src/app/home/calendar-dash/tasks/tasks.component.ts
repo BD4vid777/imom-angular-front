@@ -1,6 +1,7 @@
 import {Component, Inject, Input, OnInit} from '@angular/core';
 import {Task} from '../../../nav/calendar/model/task';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {CalendarService} from '../../../nav/calendar/service/calendar-task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -35,8 +36,7 @@ export class TasksComponent implements OnInit {
 
 export class TasksDialog {
 
-  constructor(
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private calendarService: CalendarService) {}
 
   deleteTask(task: Task) {
     // return null;
@@ -44,5 +44,11 @@ export class TasksDialog {
     if (index !== -1) {
       this.data.tasks.splice(index, 1);
     }
+    this.calendarService.deleteTask(task.id).subscribe();
+
   }
+
+  // updateTask(task: any) {
+  //
+  // }
 }

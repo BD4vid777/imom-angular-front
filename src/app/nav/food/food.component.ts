@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {FoodService} from './service/food.service';
+import {Food} from './model/food';
 
 @Component({
   selector: 'app-food',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FoodComponent implements OnInit {
 
-  constructor() { }
+  days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  meals = ['Breakfast', '2nd Breakfast', 'Lunch', 'Dinner', 'Supper'];
+
+  daySelected = 'Monday';
+  mealSelected = 'Breakfast';
+
+  foodList?: Food[];
+
+  constructor(private foodService: FoodService) { }
 
   ngOnInit(): void {
+    this.foodService.getFood().subscribe(foodList => this.foodList = foodList);
+  }
+
+  selectDay(day: string) {
+    this.daySelected = day;
+    console.log(this.daySelected);
+  }
+
+  selectMeal(meal: string) {
+    this.mealSelected = meal;
+    console.log(this.mealSelected);
   }
 
 }

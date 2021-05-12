@@ -4,6 +4,8 @@
     <ul class="top_questions">
       <li *ngFor="let question of topQuestions">
         <a [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</a>
+        <p>{{question.likesQuantity}}</p>
+        <p>{{question.numberOfAnswers}}</p>
     </ul>
   </div>
 </div>

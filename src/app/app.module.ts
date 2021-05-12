@@ -48,6 +48,8 @@ import { ForumQuestionComponent } from './nav/forum/forum-question/forum-questio
 import { MatChipsModule } from '@angular/material/chips';
 
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
+import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.component';
+import {DatePipe} from '@angular/common';
 import {TasksComponent, TasksDialog} from './home/calendar-dash/tasks/tasks.component';
 import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-task.component';
 import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
@@ -85,6 +87,7 @@ import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.compone
     CalendarTaskComponent,
     TasksDialog,
     NewTaskComponent,
+    BlogArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -111,7 +114,7 @@ import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.compone
     HttpClientModule,
     MatChipsModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 // @ts-ignore

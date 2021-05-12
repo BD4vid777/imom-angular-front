@@ -12,10 +12,10 @@
   <div class="all-meals">
     <div *ngFor="let food of foodList">
       <div *ngIf="food.day.includes(daySelected)">
-        <div *ngIf="food.meal === mealSelected" >
+        <div *ngIf="food.mealTime === mealSelected" >
           <mat-card class="meal-container">
-            <mat-card-title>{{food.name}}</mat-card-title>
-            <mat-card-content>{{food.description}}</mat-card-content>
+            <mat-card-title>{{food.recipeName}}</mat-card-title>
+            <mat-card-content>{{food.recipeText}}</mat-card-content>
           </mat-card>
         </div>
       </div>

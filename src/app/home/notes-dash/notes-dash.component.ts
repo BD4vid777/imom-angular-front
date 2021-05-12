@@ -78,6 +78,11 @@ export class NotesDashDialog {
               @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   deleteNote(note: Note) {
+
+    const index: number = this.data.notes.indexOf(note);
+    if (index !== -1) {
+      this.data.notes.splice(index, 1);
+    }
     this.homeService.deleteNote(note.id).subscribe();
   }
 }

@@ -1,0 +1,13 @@
+<div *ngIf="tasks" class="tasks">
+  <p>TASKS</p>
+  <div>
+    <ul>
+      <li *ngFor="let task of tasks">
+        <p>{{task.taskName}}</p>
+    </ul>
+  </div>
+<a class="add_task_button" href="new-task">ADD TASK</a>
+<button mat-button (click)="openAllTasks()">View With Details ({{tasks.length}})</button>
+</div>
+
+

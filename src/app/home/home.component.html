@@ -7,7 +7,7 @@
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.calendar.cols" [rowspan]="(cardLayout | async)!.calendar.rows">
       <mat-card class="dashboard-card">
-        <app-calendar-dash></app-calendar-dash>
+        <app-calendar-dash (demo)="onChange($event)"></app-calendar-dash>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.notes.cols" [rowspan]="(cardLayout | async)!.notes.rows">

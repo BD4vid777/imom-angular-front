@@ -1,0 +1,21 @@
+<div class="dialog-container">
+  <h2 *ngIf="data.tasks.length > 0; else noTasks">These are your tasks.</h2>
+  <br>
+  <ng-template #noTasks>Add some tasks.</ng-template>
+  <div mat-dialog-content>
+    <div *ngFor="let task of data.tasks">
+      <mat-card class="single-task">
+        <div class="data">
+          <p>{{task.taskName}}</p>
+          <h3>{{task.taskText}}</h3>
+          <h4 *ngIf="task.taskStatus == true; else statusFalse">done</h4>
+          <ng-template #statusFalse>to do</ng-template>
+        </div>
+        <button mat-raised-button color="accent" (click)="deleteTask(task)">Delete</button>
+<!--        <button mat-raised-button color="accent" (click)="updateTask(task)">Update</button>-->
+      </mat-card>
+    </div>
+    <br>
+    <h3>Click outside to close</h3>
+  </div>
+</div>

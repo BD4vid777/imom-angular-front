@@ -37,7 +37,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { NotesComponent } from './home/notes-dash/notes/notes.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { SearchQuestionComponent } from './nav/forum/search-question/search-question.component';
 import { UserTopicsComponent } from './nav/forum/user-topics/user-topics.component';
@@ -75,7 +74,6 @@ import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.compone
     KicksComponent,
     HeaderComponent,
     LoginPageComponent,
-    NotesComponent,
     NotesDashDialog,
     SearchQuestionComponent,
     UserTopicsComponent,

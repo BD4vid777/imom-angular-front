@@ -103,6 +103,12 @@ body, h1, h2, h3, p {
   height: unset!important;
 }
 
+@mixin FlexJusCont($direction, $justify) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+}
+
 // LOGIN PAGE /////////////////////////
 
 .login-card-container {
@@ -129,23 +135,17 @@ body, h1, h2, h3, p {
     }
 
     .login-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      @include FlexJusCont(column, space-between);
       gap: 20px;
 
       .login-input-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+        @include FlexJusCont(column, space-between);
         gap: 20px;
       }
     }
 
     .welcome-message {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      @include FlexJusCont(column, space-between);
       gap: 20px;
 
       img {
@@ -260,11 +260,9 @@ body, h1, h2, h3, p {
 }
 
 .welcome-dash-container {
-  display: flex;
-  flex-direction: row;
+  @include FlexJusCont(row, space-between);
   height: 100%;
   width: 100%;
-  justify-content: space-between;
   background-image: url("/assets/welcome_background.jpg");
   background-size: 25rem;
   background-repeat: no-repeat;
@@ -276,9 +274,7 @@ body, h1, h2, h3, p {
     line-height: initial;
     padding-right: 2rem;
     font-weight: bold;
-    display: flex;
-    justify-content: space-around;
-    flex-direction: column;
+    @include FlexJusCont(column, space-around);
     align-items: flex-start;
 
     h1 {
@@ -291,33 +287,60 @@ body, h1, h2, h3, p {
   }
 
   .date-weather-container {
-    display: flex;
-    flex-direction: column;
+    @include FlexJusCont(column, flex-end);
     width: 22%;
-    justify-content: flex-end;
     padding-bottom: 1.2rem;
     font-size: 2rem;
     font-weight: 600;
   }
 }
 .calendar-dash-container {
+  @include FlexJusCont(column, space-between);
+  height: 100%;
+
+  .calendar-dash-date {
+    height: 30%;
+  }
+
+  .calendar-dash-tasks-container {
+    @include FlexJusCont(column, space-between);
+    height: 100%;
+    padding-top: 1rem;
+  }
+
   .tasks {
-    display: flex;
-    justify-content: space-between;
-    height: 70%;
+    @include FlexJusCont(column, flex-start);
+    height: 85%;
+    overflow: scroll;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .dash-task-view {
+      margin: 1rem;
+    }
+
+    &:hover {
+      .dash-task-hidden {
+        display: unset;
+      }
+    }
+
+    .dash-task-hidden {
+      display: none;
+    }
   }
 
   .calendar-dash-buttons {
-    margin: auto;
-    bottom: 0;
+    @include FlexJusCont(row, space-between);
   }
 }
 
 .notes-dash-container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @include FlexJusCont(column, space-between);
 
   .note-field {
 
@@ -331,8 +354,7 @@ body, h1, h2, h3, p {
   }
 
   .notes-buttons {
-    display: flex;
-    justify-content: space-between;
+    @include FlexJusCont(row, space-between);
   }
 }
 

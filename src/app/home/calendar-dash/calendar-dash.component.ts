@@ -21,5 +21,3 @@ export class CalendarDashComponent implements OnInit {
     this.demo.emit('data change');
   }
 }
-
-

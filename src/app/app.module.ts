@@ -17,7 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { FoodDashComponent } from './home/food-dash/food-dash.component';
 import { WelcomeDashComponent } from './home/welcome-dash/welcome-dash.component';
-import { CalendarDashComponent } from './home/calendar-dash/calendar-dash.component';
+import { CalendarDashComponent} from './home/calendar-dash/calendar-dash.component';
 import { ForumDashComponent } from './home/forum-dash/forum-dash.component';
 import { BlogDashComponent } from './home/blog-dash/blog-dash.component';
 import { NotesDashComponent, NotesDashDialog} from './home/notes-dash/notes-dash.component';
@@ -49,9 +49,10 @@ import { MatChipsModule } from '@angular/material/chips';
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
 import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.component';
 import {DatePipe} from '@angular/common';
-import {TasksComponent, TasksDialog} from './home/calendar-dash/tasks/tasks.component';
+import {TasksComponent} from './home/calendar-dash/tasks/tasks.component';
 import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-task.component';
 import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
 
 
 @NgModule({
@@ -83,10 +84,9 @@ import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.compone
     NewQuestionComponent,
     TasksComponent,
     CalendarTaskComponent,
-    TasksDialog,
     NewTaskComponent,
-    BlogArticleComponent,
-  ],
+    BlogArticleComponent
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -110,7 +110,8 @@ import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.compone
     MatSnackBarModule,
     MatDialogModule,
     HttpClientModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDatepickerModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

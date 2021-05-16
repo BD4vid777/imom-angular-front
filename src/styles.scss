@@ -99,6 +99,9 @@ body, h1, h2, h3, p {
   justify-content: center;
   gap: 1rem;
 }
+.mat-drawer-content {
+  height: unset!important;
+}
 
 // LOGIN PAGE /////////////////////////
 
@@ -184,6 +187,15 @@ body, h1, h2, h3, p {
     position: absolute!important;
   }
 }
+
+.mat-sidenav-content {
+  overflow: hidden;
+
+  @media (max-width: 60rem) {
+      overflow: scroll;
+  }
+}
+
 
 // HEADER /////////////////////////////
 
@@ -289,7 +301,16 @@ body, h1, h2, h3, p {
   }
 }
 .calendar-dash-container {
+  .tasks {
+    display: flex;
+    justify-content: space-between;
+    height: 70%;
+  }
 
+  .calendar-dash-buttons {
+    margin: auto;
+    bottom: 0;
+  }
 }
 
 .notes-dash-container {
@@ -483,7 +504,6 @@ body, h1, h2, h3, p {
     }
   }
 }
-
 .food-dash-container {
   height: 100%;
   display: flex;

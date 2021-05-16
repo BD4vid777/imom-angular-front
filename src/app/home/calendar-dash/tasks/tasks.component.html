@@ -8,11 +8,11 @@
   <!--    </ul>-->
   <!--  </div>-->
     <div *ngFor="let task of tasks">
-      <mat-card class="dash-task-view">
+      <mat-card class="dash-task-view" (mouseover)="taskDetails.style.display = 'block'" (mouseleave)="taskDetails.style.display = 'none'">
         <mat-card-title>
           {{task.taskName}}
         </mat-card-title>
-        <div class="dash-task-hidden">
+        <div class="dash-task-hidden" #taskDetails>
           <mat-card-content>
             {{task.taskText}}
           </mat-card-content>

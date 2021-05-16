@@ -11,7 +11,7 @@ import {CalendarService} from '../../../nav/calendar/service/calendar-task.servi
 export class TasksComponent implements OnInit {
   @Input() tasks!: Task[];
 
-  constructor( public dialog: MatDialog, private calendarService: CalendarService) { }
+  constructor( public dialog: MatDialog, private calendarService: CalendarService) {  }
 
   // openAllTasks(): void {
   //   const dialogRef = this.dialog.open(TasksDialog, {

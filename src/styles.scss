@@ -318,18 +318,12 @@ body, h1, h2, h3, p {
       display: none;
     }
 
-    .dash-task-view {
-      margin: 1rem;
-    }
-
-    &:hover {
-      .dash-task-hidden {
-        display: unset;
-      }
-    }
-
     .dash-task-hidden {
       display: none;
+    }
+
+    .dash-task-view {
+      margin: 1rem;
     }
   }
 

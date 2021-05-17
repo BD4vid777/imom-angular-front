@@ -65,7 +65,7 @@ $front-angular-material-theme: mat-light-theme((
 
 :root {
   --clr-primary-blue: #3f51b5;
-  --clr-primary-pink: #fa3346;
+  --clr-primary-pink: #ff4081;
   --ff-primary: 'Nunito', sans-serif;
   --ff-secondary: 'Reenie Beanie', cursive;
 }
@@ -332,6 +332,12 @@ body, h1, h2, h3, p {
   }
 }
 
+  // NEW TASK DIALOG
+  .new-task-form {
+    @include FlexJusCont(column, space-between);
+    gap: 1rem;
+  }
+
 .notes-dash-container {
   height: 100%;
   @include FlexJusCont(column, space-between);
@@ -352,7 +358,7 @@ body, h1, h2, h3, p {
   }
 }
 
-  // NOTES - DIALOG // start
+  // NOTES - DIALOG
   .dialog-container {
   display: inline-flex;
   position: relative;
@@ -384,7 +390,6 @@ body, h1, h2, h3, p {
     margin-bottom: 0;
   }
 }
-  // end
 
   // COUNTERS
     // CONTRACTIONS
@@ -492,6 +497,16 @@ body, h1, h2, h3, p {
     margin: 0;
   }
 
+  .mat-chip {
+    &:focus {
+      background-color: var(--clr-primary-pink)!important;
+    }
+
+    &:after {
+      background: none!important;
+    }
+  }
+
   .blog-dash-articles {
     display: flex;
     flex-direction: row;
@@ -522,14 +537,20 @@ body, h1, h2, h3, p {
 }
 .food-dash-container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  @include FlexJusCont(column, space-between);
 
   mat-chip {
     background-color: #3f51b5 !important;
     color: white !important;
     font-size: x-small;
+
+    &:focus {
+      background-color: var(--clr-primary-pink)!important;
+    }
+
+    &:after {
+      background: none!important;
+    }
   }
 
   .meals-chips-container {
@@ -564,7 +585,53 @@ body, h1, h2, h3, p {
   }
 }
 
+// PAGES //////////////////////////////
 
+//// CALENDAR /////////////////////////
 
+//// FOOD /////////////////////////////
 
+.food-chips-container {
+  @include FlexJusCont(row, center);
+  gap: 1rem;
 
+  mat-chip {
+    background-color: var(--clr-primary-blue) !important;
+    color: white !important;
+
+    &:focus {
+      background-color: var(--clr-primary-pink) !important;
+    }
+
+    &:after {
+      background: none !important;
+    }
+  }
+}
+
+.meals {
+  height: 94%;
+  margin-top: 1rem;
+  overflow: scroll;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  .meals-container {
+    @include FlexJusCont(column, center);
+
+    h2 {
+      margin: 1rem auto;
+    }
+  }
+
+  .day-container {
+    @include FlexJusCont(row, center);
+
+    mat-card {
+      margin: 0 1rem;
+    }
+  }
+}

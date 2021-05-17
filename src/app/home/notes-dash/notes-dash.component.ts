@@ -74,7 +74,7 @@ export class NotesDashComponent implements OnInit {
 })
 export class NotesDashDialog {
 
-  constructor(private homeService: HomeService, private router: Router,
+  constructor(private homeService: HomeService,
               @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   deleteNote(note: Note) {

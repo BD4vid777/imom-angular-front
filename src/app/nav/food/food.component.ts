@@ -13,7 +13,6 @@ export class FoodComponent implements OnInit {
   meals = ['Breakfast', '2nd Breakfast', 'Lunch', 'Dinner', 'Supper'];
 
   daySelected = 'Monday';
-  mealSelected = 'Breakfast';
 
   foodList?: Food[];
 
@@ -26,11 +25,6 @@ export class FoodComponent implements OnInit {
   selectDay(day: string) {
     this.daySelected = day;
     console.log(this.daySelected);
-  }
-
-  selectMeal(meal: string) {
-    this.mealSelected = meal;
-    console.log(this.mealSelected);
   }
 
 }

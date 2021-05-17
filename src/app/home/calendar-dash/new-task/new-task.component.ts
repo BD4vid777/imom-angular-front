@@ -1,9 +1,8 @@
-import {Component, EventEmitter, Inject, Injectable, OnInit, Output} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup} from '@angular/forms';
 import {newTask} from '../../../nav/calendar/model/newTask';
 import {CalendarService} from '../../../nav/calendar/service/calendar-task.service';
 import {Router} from "@angular/router";
-import {CalendarDashComponent} from "../calendar-dash.component";
 
 @Component({
   selector: 'app-new-task',

@@ -28,7 +28,7 @@ export class NewTaskComponent implements OnInit {
   submitted(): void {
     this.formSubmitted = true;
     // tslint:disable-next-line:label-position
-    let task: newTask;
+    let task!: newTask;
     // tslint:disable-next-line:forin
     for (const field in this.taskForm.controls) {
       // tslint:disable-next-line:prefer-const
@@ -43,9 +43,11 @@ export class NewTaskComponent implements OnInit {
       const navigationDetails: string[] = ['/home'];
       this.router.navigate(navigationDetails);
     }
-
-    // @ts-ignore
     this.calendarTaskService.postNewTask(task, '1').subscribe();
+
+
+
+
   }
 
 }

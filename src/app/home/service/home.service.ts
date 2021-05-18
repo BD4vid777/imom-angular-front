@@ -5,6 +5,7 @@ import {BlogPost} from '../../models/blog-post.object';
 import {newQuestion} from '../../nav/forum/model/newQuestion';
 import {PregnancyInfo} from '../../models/pregnancyInfo';
 import {Note} from '../../models/note.object';
+import {Contraction} from "../../models/contraction";
 
 @Injectable({
   providedIn: 'root'
@@ -32,5 +33,9 @@ export class HomeService {
 
   deleteNote(noteId: string): Observable<any> {
     return this.webRequestService.delete('dairy/delete/' + noteId);
+  }
+
+  saveNewContraction(userId: string, contraction: Contraction ): Observable<any>  {
+    return this.webRequestService.post('pregnancy-info/contractions' + '?userId=' + userId, contraction);
   }
 }

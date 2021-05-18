@@ -1,4 +1,6 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, HostListener, Input, OnInit, ViewChild} from '@angular/core';
+import {Contraction} from "../../../models/contraction";
+import {HomeService} from "../../service/home.service";
 
 @Component({
   selector: 'app-contractions',
@@ -7,6 +9,8 @@ import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/c
 })
 export class ContractionsComponent implements OnInit {
 
+  // @Input() contraction?: Contraction;
+
   contractionsCount = 0;
   frequency = 0;
   holdStart = 0;
@@ -14,7 +18,7 @@ export class ContractionsComponent implements OnInit {
   timeStamp = '';
   date: any;
 
-  constructor(private elRef: ElementRef) { }
+  constructor(private elRef: ElementRef, private homeService: HomeService) { }
 
   ngOnInit(): void {
   }
@@ -34,7 +38,15 @@ export class ContractionsComponent implements OnInit {
   countContraction() {
     this.contractionsCount++;
     let date = new Date();
-    this.timeStamp = date.toLocaleDateString('en-GB', {weekday: 'long', hour: 'numeric', minute: 'numeric'})
-  };
+    this.timeStamp = date.toLocaleDateString('en-GB', {weekday: 'long', hour: 'numeric', minute: 'numeric'});
+    let contraction: Contraction;
+    contraction = {
+      duration: this.frequency,
+      dateTime: this.timeStamp,
+    };
+
+    this.homeService.saveNewContraction('1', contraction).subscribe();
+
+  }
 }
 

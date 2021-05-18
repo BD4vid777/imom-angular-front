@@ -1,13 +1,11 @@
-<form class="example-form"  (ngSubmit)="submitted()" #userForm="ngForm" [formGroup]="taskForm">
-  <mat-form-field class="example-full-width">
+<form class="new-task-form"  (ngSubmit)="submitted()" #userForm="ngForm" [formGroup]="taskForm">
+  <mat-form-field class="new-task-title">
     <mat-label>Title</mat-label>
-    <input matInput placeholder="" value="" name="newTask.taskName"  formControlName="taskName">
+    <input matInput placeholder="New task title is..." value="" name="newTask.taskName"  formControlName="taskName">
   </mat-form-field>
-
-  <mat-form-field class="example-full-width">
+  <mat-form-field class="new-task-text">
     <mat-label>Body</mat-label>
-    <textarea matInput placeholder="I have to do..." name="newTask.taskText"  formControlName="taskText"></textarea>
+    <textarea matInput placeholder="I have to do..." value="" name="newTask.taskText"  formControlName="taskText"></textarea>
   </mat-form-field>
-  <button type="submit" [disabled]="!userForm.form.valid">Save</button>
-
+  <button mat-raised-button color="primary" type="submit" mat-dialog-close [disabled]="!userForm.form.valid" >Save</button>
 </form>

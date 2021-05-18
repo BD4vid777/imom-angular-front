@@ -1,13 +1,25 @@
-<div *ngIf="tasks" class="tasks">
+<div class="calendar-dash-tasks-container">
   <p>TASKS</p>
-  <div>
-    <ul>
-      <li *ngFor="let task of tasks">
-        <p>{{task.taskName}}</p>
-    </ul>
+  <div *ngIf="tasks.length > 0; else noTasks" class="tasks">
+    <div *ngFor="let task of tasks">
+      <mat-card class="dash-task-view" (mouseover)="taskDetails.style.display = 'block'" (mouseleave)="taskDetails.style.display = 'none'">
+        <mat-card-title>
+          {{task.taskName}}
+        </mat-card-title>
+        <div class="dash-task-hidden" #taskDetails>
+          <mat-card-content>
+            {{task.taskText}}
+          </mat-card-content>
+          <button mat-raised-button color="accent" (click)="deleteTask(task)">Delete</button>
+        </div>
+      </mat-card>
+    </div>
   </div>
-<a class="add_task_button" href="new-task">ADD TASK</a>
-<button mat-button (click)="openAllTasks()">View With Details ({{tasks.length}})</button>
+
+  <div class="calendar-dash-buttons">
+    <button mat-button routerLink="/calendar">View All</button>
+    <button mat-raised-button color="primary" class="add_task_button" (click)="addTaskDialog()">ADD TASK</button>
+  </div>
 </div>
 
-
+<ng-template #noTasks>Add Some tasks</ng-template>

@@ -21,6 +21,7 @@ export class WebRequestService {
   post(url: string, payload: Object) {
     return this.http.post(`${this.ROOT_URL}/${url}`, payload);
   }
+
   //
   // patch(url: string, payload: Object) {
   //   return this.http.patch(`${this.ROOT_URL}/${url}`, payload);

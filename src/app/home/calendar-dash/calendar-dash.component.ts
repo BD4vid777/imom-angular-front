@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {CalendarService} from '../../nav/calendar/service/calendar-task.service';
 import {Task} from '../../nav/calendar/model/task';
 
@@ -10,6 +10,7 @@ import {Task} from '../../nav/calendar/model/task';
 export class CalendarDashComponent implements OnInit {
   tasks: Task[] = [];
   @Output() demo: EventEmitter<string> = new EventEmitter();
+  @Input() editTask!: Task;
 
   constructor(private calendarService: CalendarService) { }
 

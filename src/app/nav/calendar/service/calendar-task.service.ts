@@ -25,4 +25,13 @@ export class CalendarService {
   deleteTask(taskId: string): Observable<any> {
     return this.webRequestService.delete('tasks-before-birth/delete/' + taskId);
   }
+
+  editTask(task: Task): Observable<any> {
+    return this.webRequestService.post('tasks-before-birth' + task.id + 'update', task);
+  }
+
+  getTask(taskId: string): Observable<Task>  {
+    console.log("aaa");
+    return this.webRequestService.get('tasks-before-birth/' + + taskId);
+  }
 }

@@ -53,6 +53,7 @@ import {TasksComponent} from './home/calendar-dash/tasks/tasks.component';
 import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-task.component';
 import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
+import { ForumSearchedResultComponent } from './nav/forum/forum-searched-result/forum-searched-result.component';
 
 
 @NgModule({
@@ -85,7 +86,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     TasksComponent,
     CalendarTaskComponent,
     NewTaskComponent,
-    BlogArticleComponent
+    BlogArticleComponent,
+    ForumSearchedResultComponent,
     ],
   imports: [
     BrowserModule,

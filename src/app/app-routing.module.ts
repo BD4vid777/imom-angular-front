@@ -9,6 +9,7 @@ import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.
 import {NewQuestionComponent} from './nav/forum/new-question/new-question.component';
 import {NewTaskComponent} from './home/calendar-dash/new-task/new-task.component';
 import {BlogArticleComponent} from './nav/blog/blog-article/blog-article.component';
+import {SearchQuestionComponent} from "./nav/forum/search-question/search-question.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -20,7 +21,8 @@ const routes: Routes = [
   {path: 'forum-question/:id', component: ForumQuestionComponent},
   {path: 'blog-article/:id', component: BlogArticleComponent},
   {path: 'new-question', component: NewQuestionComponent},
-  {path: 'new-task', component: NewTaskComponent}
+  {path: 'new-task', component: NewTaskComponent},
+  {path: 'searched-questions', component: SearchQuestionComponent}
 ];
 
 @NgModule({

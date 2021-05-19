@@ -17,6 +17,9 @@ export class TopQuestionsComponent implements OnInit {
   }
 
   search(value: string) {
+    if(this.searchedQuestions.length > 0){
+      this.searchedQuestions.length = 0;
+    }
       // console.log(value);
       if (this.topQuestions){
         for (const question of this.topQuestions){

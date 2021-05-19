@@ -1,3 +1,4 @@
+<div *ngIf="searchedQuestions.length<1; else searchingQuestions">
 <div *ngIf="topQuestions" class="top_questions">
   <p>Top Questions</p>
   <div  class="question_titles">
@@ -9,6 +10,7 @@
     </ul>
   </div>
 </div>
+</div>
 
 <div class="search-bar-container">
   <mat-form-field class="search-input" appearance="outline">
@@ -18,6 +20,19 @@
   </mat-form-field>
 </div>
 
+<ng-template #searchingQuestions>
+  <div *ngIf="searchedQuestions">
+    <p>Searched Questions</p>
+    <div  class="question_titles">
+      <ul class="top_questions">
+        <li *ngFor="let question of searchedQuestions">
+          <a [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</a>
+          <p>{{question.likesQuantity}}</p>
+          <p>{{question.numberOfAnswers}}</p>
+      </ul>
+    </div>
+  </div>
+</ng-template>
 <!--<label class="mr-2" for="search-box">Product Search</label>-->
 <!--<input #searchBox id="search-box"/>-->
 <!--<button class="ml-2 bg-green text-white" (click)="search(searchBox.value)">Search</button>-->

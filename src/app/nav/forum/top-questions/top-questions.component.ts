@@ -27,6 +27,6 @@ export class TopQuestionsComponent implements OnInit {
           }
         }
       }
-      this.router.navigate(['/searched-questions'], { state: { searched: this.searchedQuestions } });
+      // this.router.navigate(['/searched-questions'], { state: { searched: this.searchedQuestions } });
     }
 }

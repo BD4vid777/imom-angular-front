@@ -17,7 +17,10 @@
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.card4.cols" [rowspan]="(cardLayout | async)!.card4.rows">
       <mat-card class="dashboard-card">
-        <app-counters-dash [kicksCount] = "kicksCount" [countContractions] = "countContractions"></app-counters-dash>
+        <app-counters-dash [kicksCount] = "kicksCount" [countContractions] = "countContractions"
+                           [lastContraction] = "lastContraction">
+
+        </app-counters-dash>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.forum.cols" [rowspan]="(cardLayout | async)!.forum.rows">

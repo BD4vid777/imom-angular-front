@@ -42,4 +42,8 @@ export class HomeService {
   getCountContractions(userId: string): Observable<any>  {
     return this.webRequestService.get('pregnancy-info/count-contractions' + '?userId=' + userId);
   }
+
+  getLastContraction(userId: string): Observable<any>  {
+    return this.webRequestService.get('pregnancy-info/last-contraction' + '?userId=' + userId);
+  }
 }

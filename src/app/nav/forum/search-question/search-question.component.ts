@@ -11,6 +11,7 @@ export class SearchQuestionComponent implements OnInit {
   checked = false;
   disabled = true;
 
+
   constructor() { }
 
   ngOnInit(): void {

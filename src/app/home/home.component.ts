@@ -9,6 +9,7 @@ import {Food} from '../nav/food/model/food';
 import {HomeService} from './service/home.service';
 import {PregnancyInfo} from '../models/pregnancyInfo';
 import {Note} from '../models/note.object';
+import {Contraction} from "../models/contraction";
 
 @Component({
   selector: 'app-home',
@@ -20,6 +21,8 @@ export class HomeComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   foodList: Food[] = [];
   kicksCount!: number;
+  countContractions!: number;
+  lastContraction!: Contraction;
   userNotes: Note[] = [];
 
   /** Based on the screen size, switch from standard to one column per row */
@@ -56,6 +59,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.homeService.getCountContractions('1').subscribe(countContractions => this.countContractions = countContractions);
+    this.homeService.getLastContraction('1').subscribe(lastContraction => this.lastContraction = lastContraction);
     this.homeService.getKicksCount('1').subscribe(kicksCount => this.kicksCount = kicksCount);
     this.blogService.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
     this.foodService.getFood().subscribe(foodList => this.foodList = foodList);

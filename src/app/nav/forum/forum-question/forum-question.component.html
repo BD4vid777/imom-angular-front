@@ -3,6 +3,7 @@
   <a class="add_q_button" href="forum/add-question">ADD QUESTION</a>
   <div *ngIf="question">
     <p>{{question.questionTitle}}</p>
+    <p>{{question.question}}</p>
     <p>{{question.likesQuantity}}</p>
     <p>{{question.numberOfAnswers}}</p>
     <div *ngFor="let answer of question.forumAnswer">

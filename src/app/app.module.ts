@@ -85,7 +85,7 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
     TasksComponent,
     CalendarTaskComponent,
     NewTaskComponent,
-    BlogArticleComponent
+    BlogArticleComponent,
     ],
   imports: [
     BrowserModule,

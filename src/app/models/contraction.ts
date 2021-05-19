@@ -1,5 +1,5 @@
 export interface Contraction {
   duration: number;
-  dateTime: String;
+  dateTime: string;
 
 }

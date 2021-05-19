@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   blogPosts: BlogPost[] = [];
   foodList: Food[] = [];
   kicksCount!: number;
+  countContractions!: number;
   userNotes: Note[] = [];
 
   /** Based on the screen size, switch from standard to one column per row */
@@ -56,6 +57,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.homeService.getCountContractions('1').subscribe(countContractions => this.countContractions = countContractions);
     this.homeService.getKicksCount('1').subscribe(kicksCount => this.kicksCount = kicksCount);
     this.blogService.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
     this.foodService.getFood().subscribe(foodList => this.foodList = foodList);

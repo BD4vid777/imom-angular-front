@@ -9,14 +9,19 @@ import {PregnancyInfo} from '../../models/pregnancyInfo';
 export class CountersDashComponent implements OnInit {
 
   @Input() kicksCount?: number;
+  @Input() countContractions?: number;
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  countChangedHandler(count: number) {
+  countChangedHandlerKicks(count: number) {
     this.kicksCount = count;
     console.log(count);
   }
 
+  // countChangedHandlerContractions(count: number) {
+  //   this.countContractions = count;
+  //   console.log(count);
+  // }
 }

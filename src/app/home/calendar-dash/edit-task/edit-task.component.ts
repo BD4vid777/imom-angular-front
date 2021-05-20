@@ -15,6 +15,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 })
 export class EditTaskComponent implements OnInit {
   // public editTask: any;
+  @Input() editTask?: Task;
   public formSubmitted: boolean;
   taskForm = new FormGroup({
     taskName: new FormControl(''),
@@ -24,11 +25,17 @@ export class EditTaskComponent implements OnInit {
   // editTask!: Task;
 
   constructor(private calendarTaskService: CalendarService, private router: Router,
-   @Inject(MAT_DIALOG_DATA) public editTask: any) {
+   @Inject(MAT_DIALOG_DATA) public data: any) {
+    console.log(this.data.taskId);
     this.formSubmitted = false;
   }
 
   ngOnInit(): void {
+    this.calendarTaskService.getTask(this.data.taskId).subscribe(editTask => this.editTask = editTask);
+    if (this.editTask){
+      
+    }
+    // console.log(this.editTask.editTask.taskName);
     // console.log(this.editTask.taskText);
     // console.log(this.editTask.taskName);
 

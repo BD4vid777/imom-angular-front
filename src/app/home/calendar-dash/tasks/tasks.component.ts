@@ -38,11 +38,11 @@ export class TasksComponent implements OnInit {
     };
 
   editingTask(task: Task) {
-    this.calendarService.getTask(task.id).subscribe(editTask => this.editTask = editTask);
+    // this.calendarService.getTask(task.id).subscribe(editTask => this.editTask = editTask);
     const dialogRef = this.dialog.open(EditTaskComponent, {
-      width: '400px',   data: {taskEdit: task}}
+      width: '400px',   data: {taskId: task.id}}
       );
-    console.log(this.editTask.taskName);
+    // console.log(this.editTask.taskName);
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });

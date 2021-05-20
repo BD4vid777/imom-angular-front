@@ -2,7 +2,7 @@
   <mat-form-field class="new-task-title">
     <mat-label>Title</mat-label>
     <div *ngIf="editTask">
-    <input matInput placeholder="{{editTask.taskName}}" value="" name="newTask.taskName"  formControlName="taskName">
+    <input matInput placeholder="{{editTask.taskName}}" value="{{editTask.taskName}}" name="newTask.taskName"  formControlName="taskName">
     </div>
   </mat-form-field>
   <mat-form-field class="new-task-text">

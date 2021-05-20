@@ -54,6 +54,7 @@ import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-tas
 import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import { EditTaskComponent } from './home/calendar-dash/edit-task/edit-task.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
 
 
 @NgModule({
@@ -113,7 +114,8 @@ import { EditTaskComponent } from './home/calendar-dash/edit-task/edit-task.comp
     MatDialogModule,
     HttpClientModule,
     MatChipsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatCheckboxModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

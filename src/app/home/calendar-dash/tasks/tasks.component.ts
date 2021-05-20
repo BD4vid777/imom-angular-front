@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from '../../../nav/calendar/model/task';
 import {MatDialog} from '@angular/material/dialog';
 import {CalendarService} from '../../../nav/calendar/service/calendar-task.service';
@@ -13,6 +13,8 @@ import {EditTaskComponent} from "../edit-task/edit-task.component";
 export class TasksComponent implements OnInit {
   @Input() tasks!: Task[];
   @Input() editTask!: Task;
+  @Output() demo: EventEmitter<Task> = new EventEmitter();
+
 
   constructor( public dialog: MatDialog, private calendarService: CalendarService) {  }
 
@@ -45,6 +47,7 @@ export class TasksComponent implements OnInit {
     // console.log(this.editTask.taskName);
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
+      this.demo.emit(result);
     });
   }
 }

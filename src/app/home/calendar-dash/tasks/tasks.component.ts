@@ -42,7 +42,7 @@ export class TasksComponent implements OnInit {
   editingTask(task: Task) {
     // this.calendarService.getTask(task.id).subscribe(editTask => this.editTask = editTask);
     const dialogRef = this.dialog.open(EditTaskComponent, {
-      width: '400px',   data: {taskId: task.id}}
+      width: '400px',   data: {editingTask: task}}
       );
     // console.log(this.editTask.taskName);
     dialogRef.afterClosed().subscribe(result => {

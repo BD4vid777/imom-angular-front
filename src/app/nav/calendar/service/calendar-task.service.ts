@@ -14,7 +14,7 @@ export class CalendarService {
     this.ROOT_URL = '';
   }
 
-  getTasks(): Observable<Task[]>  {
+  getTasks(): Observable<Task[]> {
     return this.webRequestService.get('users/1/tasks-before-birth');
   }
 
@@ -24,5 +24,13 @@ export class CalendarService {
 
   deleteTask(taskId: string): Observable<any> {
     return this.webRequestService.delete('tasks-before-birth/delete/' + taskId);
+  }
+
+  editTask(task: Task): Observable<any> {
+    return this.webRequestService.post('tasks-before-birth/' + task.id + '/update', task);
+  }
+
+  getTask(taskId: string): Observable<Task> {
+    return this.webRequestService.get('tasks-before-birth/' + +taskId);
   }
 }

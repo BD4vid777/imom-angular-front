@@ -46,4 +46,5 @@ export class HomeService {
   getLastContraction(userId: string): Observable<any>  {
     return this.webRequestService.get('pregnancy-info/last-contraction' + '?userId=' + userId);
   }
+
 }

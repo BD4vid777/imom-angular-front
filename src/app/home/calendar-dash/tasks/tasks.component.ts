@@ -1,8 +1,9 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Task} from '../../../nav/calendar/model/task';
 import {MatDialog} from '@angular/material/dialog';
 import {CalendarService} from '../../../nav/calendar/service/calendar-task.service';
 import { NewTaskComponent } from '../new-task/new-task.component';
+import {EditTaskComponent} from "../edit-task/edit-task.component";
 
 @Component({
   selector: 'app-tasks',
@@ -11,6 +12,9 @@ import { NewTaskComponent } from '../new-task/new-task.component';
 })
 export class TasksComponent implements OnInit {
   @Input() tasks!: Task[];
+  @Input() editTask!: Task;
+  @Output() demo: EventEmitter<Task> = new EventEmitter();
+
 
   constructor( public dialog: MatDialog, private calendarService: CalendarService) {  }
 
@@ -34,4 +38,16 @@ export class TasksComponent implements OnInit {
       console.log(result);
     })
     };
+
+  editingTask(task: Task) {
+    // this.calendarService.getTask(task.id).subscribe(editTask => this.editTask = editTask);
+    const dialogRef = this.dialog.open(EditTaskComponent, {
+      width: '400px',   data: {editingTask: task}}
+      );
+    // console.log(this.editTask.taskName);
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      this.demo.emit(result);
+    });
+  }
 }

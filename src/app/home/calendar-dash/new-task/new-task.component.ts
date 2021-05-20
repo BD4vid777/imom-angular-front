@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
   templateUrl: './new-task.component.html',
   styleUrls: ['./new-task.component.scss']
 })
+
 export class NewTaskComponent implements OnInit {
   public newTask: any;
   public formSubmitted: boolean;
@@ -17,6 +18,7 @@ export class NewTaskComponent implements OnInit {
     taskText: new FormControl(''),
 
   });
+
 
   constructor(private calendarTaskService: CalendarService, private router: Router) {
     this.formSubmitted = false;
@@ -44,8 +46,6 @@ export class NewTaskComponent implements OnInit {
       this.router.navigate(navigationDetails);
     }
     this.calendarTaskService.postNewTask(task, '1').subscribe();
-
-
 
 
   }

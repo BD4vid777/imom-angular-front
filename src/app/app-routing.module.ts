@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FoodComponent } from './nav/food/food.component';
 import { HomeComponent } from "./home/home.component";
@@ -11,18 +11,26 @@ import {NewTaskComponent} from './home/calendar-dash/new-task/new-task.component
 import {BlogArticleComponent} from './nav/blog/blog-article/blog-article.component';
 import {SearchQuestionComponent} from "./nav/forum/search-question/search-question.component";
 
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import {LoginPageComponent} from './login-page/login-page.component';
+import {AuthGuard} from './authGuard/authGuard';
+
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: 'home', component: HomeComponent},
-  {path: 'food', component: FoodComponent},
-  {path: 'calendar', component: CalendarComponent},
-  {path: 'blog', component: BlogComponent},
-  {path: 'forum', component: ForumComponent},
-  {path: 'forum-question/:id', component: ForumQuestionComponent},
-  {path: 'blog-article/:id', component: BlogArticleComponent},
-  {path: 'new-question', component: NewQuestionComponent},
-  {path: 'new-task', component: NewTaskComponent},
-  {path: 'searched-questions', component: SearchQuestionComponent}
+  // {path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: '', component: Component, canActivate: [AuthGuard] },
+  {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  {path: 'food', component: FoodComponent, canActivate: [AuthGuard]},
+  {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
+  {path: 'blog', component: BlogComponent, canActivate: [AuthGuard]},
+  {path: 'forum', component: ForumComponent, canActivate: [AuthGuard]},
+  {path: 'forum-question/:id', component: ForumQuestionComponent, canActivate: [AuthGuard]},
+  {path: 'blog-article/:id', component: BlogArticleComponent, canActivate: [AuthGuard]},
+  {path: 'new-question', component: NewQuestionComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {path: 'searched-questions', component: SearchQuestionComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

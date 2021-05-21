@@ -49,12 +49,20 @@ import { MatChipsModule } from '@angular/material/chips';
 import { NewQuestionComponent } from './nav/forum/new-question/new-question.component';
 import { BlogArticleComponent } from './nav/blog/blog-article/blog-article.component';
 import {DatePipe} from '@angular/common';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
+import { authInterceptorProviders } from './_helpers/auth.interceptor';
+import {AuthGuard} from './authGuard/authGuard';
+
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
 import {TasksComponent} from './home/calendar-dash/tasks/tasks.component';
 import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-task.component';
 import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
-import {MatDatepickerModule} from "@angular/material/datepicker";
 import { EditTaskComponent } from './home/calendar-dash/edit-task/edit-task.component';
-import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
 
 
 @NgModule({
@@ -88,8 +96,10 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     CalendarTaskComponent,
     NewTaskComponent,
     BlogArticleComponent,
+    RegisterComponent,
+    ProfileComponent,
     EditTaskComponent,
-    ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -113,12 +123,29 @@ import {MatCheckboxModule} from "@angular/material/checkbox";
     MatSnackBarModule,
     MatDialogModule,
     HttpClientModule,
+    SocialLoginModule,
     MatChipsModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxSimpleCalendarModule
   ],
-  providers: [DatePipe],
-  bootstrap: [AppComponent]
+  providers: [authInterceptorProviders, DatePipe, AuthGuard,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '725523082669-0qsps7185279iajvicmu9nbdsnkba4vu.apps.googleusercontent.com',
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
+  bootstrap: [AppComponent],
 })
 // @ts-ignore
 export class AppModule { }

@@ -108,6 +108,14 @@ body, h1, h2, h3, p {
   flex-direction: $direction;
   justify-content: $justify;
 }
+@mixin OverFlowNoScrollBars() {
+  overflow: scroll;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
 
 // LOGIN PAGE /////////////////////////
 
@@ -311,12 +319,7 @@ body, h1, h2, h3, p {
   .tasks {
     @include FlexJusCont(column, flex-start);
     height: 85%;
-    overflow: scroll;
-    -ms-overflow-style: none;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    @include OverFlowNoScrollBars();
 
     .dash-task-hidden {
       display: none;
@@ -329,6 +332,20 @@ body, h1, h2, h3, p {
 
     .dash-task-view {
       margin: 1rem;
+
+      .task-title-container {
+        @include FlexJusCont(row, space-between);
+
+        .task-done {
+          color: springgreen;
+          cursor: pointer;
+        }
+
+        .task-todo {
+          color: #fa3346;
+          cursor: pointer;
+        }
+      }
     }
   }
 
@@ -516,14 +533,10 @@ body, h1, h2, h3, p {
     display: flex;
     flex-direction: row;
     overflow-x: scroll;
-    -ms-overflow-style: none;
     height: 100%;
     margin: 1rem 0;
     justify-content: space-between;
-
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    @include OverFlowNoScrollBars();
   }
 
   .blog-post-container {
@@ -617,12 +630,7 @@ body, h1, h2, h3, p {
 .meals {
   height: 94%;
   margin-top: 1rem;
-  overflow: scroll;
-  -ms-overflow-style: none;
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  @include OverFlowNoScrollBars();
 
   .meals-container {
     @include FlexJusCont(column, center);
@@ -638,5 +646,57 @@ body, h1, h2, h3, p {
     mat-card {
       margin: 0 1rem;
     }
+  }
+}
+
+//// BLOG /////////////////////////////
+
+.blog-content-container {
+  height: 93%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+
+  .topic-of-the-day-container {
+    width: 30%;
+
+    .blog-post-container {
+      margin: 1rem;
+
+      .blog-post-footer {
+        @include FlexJusCont(row, space-between);
+
+        mat-card-footer {
+          margin: auto 0;
+        }
+      }
+    }
+  }
+
+  .other-articles-container {
+    width: 30%;
+    @include OverFlowNoScrollBars();
+
+    .others-container {
+      display: flex;
+      flex-direction: column;
+
+
+      .blog-post-container {
+        margin: 1rem;
+
+        .blog-post-footer {
+          @include FlexJusCont(row, space-between);
+
+          mat-card-footer {
+            margin: auto 0;
+          }
+        }
+      }
+    }
+  }
+
+  .things-to-do-container {
+    width: 20%;
   }
 }

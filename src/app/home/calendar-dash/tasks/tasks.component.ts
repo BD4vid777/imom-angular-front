@@ -50,4 +50,15 @@ export class TasksComponent implements OnInit {
       this.demo.emit(result);
     });
   }
+
+  toggleStatus(task: Task) {
+    task = {
+      id: task.id,
+      taskName: task.taskName,
+      taskText: task.taskText,
+      taskStatus: !task.taskStatus,
+    };
+    this.calendarService.editTask(task).subscribe();
+
+  }
 }

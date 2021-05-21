@@ -3,6 +3,7 @@ import {WebRequestService} from '../../../web-request.service';
 import {Observable} from 'rxjs';
 import { Task } from '../model/task';
 import {newTask} from '../model/newTask';
+import {UserEvent} from '../model/userEvent';
 
 @Injectable({
   providedIn: 'root'
@@ -14,11 +15,11 @@ export class CalendarService {
     this.ROOT_URL = '';
   }
 
-  getUserCalendar(): Observable<any> {
-    return this.webRequestService.get('calendar');
-  }
+  // getUserCalendar(): Observable<any> {
+  //   return this.webRequestService.get('calendar');
+  // }
 
-  getUserEvents(): Observable<any[]>{
+  getUserEvents(): Observable<UserEvent[]>{
     return this.webRequestService.get('calendar-events');
   }
 

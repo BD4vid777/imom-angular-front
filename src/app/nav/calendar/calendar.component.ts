@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { sampleOne, sampleTwo} from './sample-data';
+import { sampleOne } from './sample-data';
 import {Component, Input, OnInit} from '@angular/core';
 import {CalendarService} from "./service/calendar-task.service";
+import {UserEvent} from "./model/userEvent";
+import {ForumQuestion} from "../forum/model/forumQuestion";
 
 @Component({
   selector: 'app-calendar',
@@ -9,9 +10,7 @@ import {CalendarService} from "./service/calendar-task.service";
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-
-  // @Input() calendar: any;
-  @Input() events: any;
+  userEvents: UserEvent[] = [];
 
   constructor(private calendarService: CalendarService) { }
   title = 'ngx-calendar';
@@ -28,13 +27,12 @@ export class CalendarComponent implements OnInit {
   events = sampleOne;
 
   addDate() {
-    this.events = sampleTwo;
+    // this.events = sampleOne;
   }
 
   ngOnInit(): void {
-    // this.calendarService.getUserCalendar().subscribe();
-    this.calendarService.getUserEvents().subscribe(events => this.events = events);
-    console.log(this.events);
-    // console.log(this.calendar);
+    // this.calendarService.getUserEvents().subscribe(events => events.forEach(userEvent =>  console.log(userEvent.name)));
+    this.calendarService.getUserEvents().subscribe(events => this.userEvents = events);
+    console.log(this.userEvents.forEach(userEvent => userEvent.name));
   }
 }

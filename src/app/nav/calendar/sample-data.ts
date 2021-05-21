@@ -4,6 +4,7 @@ export const sampleOne = [{
   data: {
     name: 'Whole day event',
     description: 'This is a whole day event description',
+    location: 'Warsaw',
     color: '#9b00ed'
   }
 }, {
@@ -12,6 +13,7 @@ export const sampleOne = [{
   data: {
     name: 'Lorem ipsum dolor sit amet.',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, quas.',
+    location: 'Warsaw',
     color: '#3365ed'
   }
 }, {
@@ -20,6 +22,7 @@ export const sampleOne = [{
   data: {
     name: 'Lorem ipsum dolor sit.',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit.',
+    location: 'Warsaw',
     color: '#eda70e'
   }
 }, {
@@ -28,56 +31,7 @@ export const sampleOne = [{
   data: {
     name: 'To Next month event',
     description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
+    location: 'Warsaw',
     color: '#3bed4c'
-  }
-}];
-
-export const sampleTwo = [{
-  startDateTime: new Date(2019, 8, 6, 2),
-  endDateTime: new Date(2019, 8, 6, 15),
-  data: {
-    name: 'To Next month event',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing.',
-    color: '#df785f'
-  }
-}, {
-  startDateTime: new Date(2019, 8, 9, 4),
-  endDateTime: new Date(2019, 8, 17, 10),
-  data: {
-    name: 'Lorem ipsum dolor sit amet.',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, quas.',
-    color: '#4493ed'
-  }
-}, {
-  startDateTime: new Date(2019, 8, 11, 4),
-  endDateTime: new Date(2019, 8, 14, 10),
-  data: {
-    name: 'Whole day event',
-    description: 'This is a whole day event description',
-    color: '#ed673a'
-  }
-}, {
-  startDateTime: new Date(2019, 8, 13, 4),
-  endDateTime: new Date(2019, 8, 14, 10),
-  data: {
-    name: 'Whole day event',
-    description: 'This is a whole day event description',
-    color: '#1be1ed'
-  }
-}, {
-  startDateTime: new Date(2019, 8, 30, 4),
-  endDateTime: new Date(2019, 9, 14, 10),
-  data: {
-    name: 'Whole day event',
-    description: 'This is a whole day event description',
-    color: '#3bed4c'
-  }
-}, {
-  startDateTime: new Date(2019, 9, 20, 4),
-  endDateTime: new Date(2019, 9, 21, 10),
-  data: {
-    name: 'Lorem ipsum dolor sit amet.',
-    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, quas.',
-    color: '#ededed'
   }
 }];

@@ -320,6 +320,11 @@ body, h1, h2, h3, p {
 
     .dash-task-hidden {
       display: none;
+
+      div {
+        display: flex;
+        gap: 1rem;
+      }
     }
 
     .dash-task-view {

@@ -1,6 +1,6 @@
 <div class="contractions-container">
   <button mat-raised-button color="primary" (click)="countContraction()">Hold</button>
-  <div class="contractions-data" *ngIf="countContractions" class="kicks-container">
+  <div class="contractions-data" *ngIf="countContractions">
     <p>Contractions: {{countContractions}}</p>
     <div *ngIf="lastContraction">
     <p>Last one: {{lastContraction.dateTime}}</p>

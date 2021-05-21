@@ -58,7 +58,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   reloadPage(): void {
-    window.location.reload();
+    window.location.replace("/home")
   }
 
   loginWithGoogle(): void {

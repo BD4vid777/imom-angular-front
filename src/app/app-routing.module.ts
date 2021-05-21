@@ -17,8 +17,7 @@ import {LoginPageComponent} from './login-page/login-page.component';
 import {AuthGuard} from './authGuard/authGuard';
 
 const routes: Routes = [
-  // {path: '', redirectTo: '/home', pathMatch: 'full'},
-  { path: '', component: Component, canActivate: [AuthGuard] },
+  { path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
   {path: 'food', component: FoodComponent, canActivate: [AuthGuard]},
   {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},

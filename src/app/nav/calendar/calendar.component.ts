@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { sampleOne, sampleTwo} from './sample-data';
 
 @Component({
   selector: 'app-calendar',
@@ -7,11 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  title = 'ngx-calendar';
 
-  ngOnInit(): void {
+  options1 = {
+    outline: false
+  };
+
+  options2 = {
+    outline: false,
+    evenDayDimensions: true
+  };
+
+  events = sampleOne;
+
+  addDate() {
+    this.events = sampleTwo;
   }
 
-  refreshTasks() {
+  ngOnInit(): void {
   }
 }

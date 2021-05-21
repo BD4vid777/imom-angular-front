@@ -2,6 +2,8 @@ import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormControl, Validators} from "@angular/forms";
 import {AuthService} from '../_services/auth.service';
 import {TokenStorageService} from '../_services/token-storage.service';
+import {GoogleLoginProvider, SocialAuthService, SocialUser} from 'angularx-social-login';
+import {WebRequestService} from '../web-request.service';
 
 @Component({
   selector: 'app-login-page',
@@ -18,14 +20,21 @@ export class LoginPageComponent implements OnInit {
   isLoginFailed = false;
   errorMessage = '';
   roles: string[] = [];
+  socialUser?: SocialUser;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private socialAuthService: SocialAuthService, private web: WebRequestService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
     }
+
+    this.socialAuthService.authState.subscribe((user) => {
+      this.socialUser = user;
+      this.isLoggedIn = (user != null);
+      console.log(this.socialUser);
+  });
   }
 
   onSubmit(): void {
@@ -50,5 +59,29 @@ export class LoginPageComponent implements OnInit {
 
   reloadPage(): void {
     window.location.reload();
+  }
+
+  loginWithGoogle(): void {
+    this.socialAuthService.signIn(GoogleLoginProvider.PROVIDER_ID).then((userData) => {
+      this.authService.googleLogin(userData.idToken).subscribe(
+        data => {
+          this.tokenStorage.saveToken(data.accessToken);
+          this.tokenStorage.saveUser(data);
+
+          this.isLoginFailed = false;
+          this.isLoggedIn = true;
+          this.roles = this.tokenStorage.getUser().roles;
+          this.reloadPage();
+        },
+        err => {
+          this.errorMessage = err.error.message;
+          this.isLoginFailed = true;
+        }
+      );
+    });
+  }
+
+  logOut(): void {
+    this.socialAuthService.signOut();
   }
 }

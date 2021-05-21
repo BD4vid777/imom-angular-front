@@ -55,6 +55,9 @@ import { ProfileComponent } from './profile/profile.component';
 import { authInterceptorProviders } from './_helpers/auth.interceptor';
 import {AuthGuard} from './authGuard/authGuard';
 
+import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
+import { GoogleLoginProvider } from 'angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -111,9 +114,25 @@ import {AuthGuard} from './authGuard/authGuard';
     MatSnackBarModule,
     MatDialogModule,
     HttpClientModule,
-    MatChipsModule
+    MatChipsModule,
+    SocialLoginModule
   ],
-  providers: [authInterceptorProviders, DatePipe, AuthGuard],
+  providers: [authInterceptorProviders, DatePipe, AuthGuard,
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '725523082669-0qsps7185279iajvicmu9nbdsnkba4vu.apps.googleusercontent.com',
+            )
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }
+  ],
   bootstrap: [AppComponent],
 })
 // @ts-ignore

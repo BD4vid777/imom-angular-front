@@ -33,6 +33,12 @@
 <!--      </div>-->
 <!--      <button mat-raised-button color="primary" (click)="logIn()">Login</button>-->
 
+        <div *ngIf="isLoggedIn === false">
+          <div>
+            <button type="button" (click)="loginWithGoogle()" class="btn btn-danger">Login with Google</button>
+          </div>
+        </div>
+
       <form *ngIf="!isLoggedIn" name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
         <mat-form-field appearance="outline">
           <mat-label>Enter your username</mat-label>
@@ -58,7 +64,9 @@
         </div>
       </form>
 
-        <a *ngIf="!isLoggedIn" href="/register" class="nav-link" routerLink="register">Click here to register</a>
+        <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/register">Click here to register</a>
+
+        <button *ngIf="isLoggedIn" type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
 
       <div class="alert alert-success" *ngIf="isLoggedIn">
         Logged in as {{ roles }}.

@@ -17,7 +17,7 @@
     <div class="login-container">
       <div class="login-input-container">
 
-        <div *ngIf="isLoggedIn === false">
+        <div *ngIf="!isLoggedIn">
           <div>
             <img src="assets/btn_google_signin_light_normal_web.png" (click)="loginWithGoogle()" style="cursor: pointer">
           </div>
@@ -47,14 +47,7 @@
           </div>
         </div>
       </form>
-
         <a *ngIf="!isLoggedIn" class="nav-link" routerLink="/register">Click here to register</a>
-
-        <button *ngIf="isLoggedIn" type="button" (click)="logOut()" class="btn btn-primary">Log Out</button>
-
-      <div class="alert alert-success" *ngIf="isLoggedIn">
-        Logged in as {{ roles }}.
-      </div>
     </div>
   </div>
     </div>

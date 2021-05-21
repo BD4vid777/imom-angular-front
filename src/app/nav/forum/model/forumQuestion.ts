@@ -3,7 +3,7 @@ import {Answer} from './answer';
 export interface ForumQuestion {
   id: number;
   questionTitle: string;
-  questionText: string;
+  question: string;
   numberOfAnswers: number;
   likesQuantity: number;
   date: string;

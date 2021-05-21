@@ -1,4 +1,6 @@
-import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Contraction} from '../../../models/contraction';
+import {HomeService} from '../../service/home.service';
 
 @Component({
   selector: 'app-contractions',
@@ -7,17 +9,22 @@ import {Component, ElementRef, HostListener, OnInit, ViewChild} from '@angular/c
 })
 export class ContractionsComponent implements OnInit {
 
-  contractionsCount = 0;
+  @Input() countContractions?: number;
+  @Input() lastContraction?: Contraction;
+  @Output() countChanged: EventEmitter<number> =   new EventEmitter();
+  @Output() lastContractionChangedDuration: EventEmitter<number> = new EventEmitter();
+  @Output() lastContractionChangedDate: EventEmitter<string> = new EventEmitter();
+
+  // contractionsCount = 0;
   frequency = 0;
   holdStart = 0;
   holdTime = 0;
   timeStamp = '';
   date: any;
 
-  constructor(private elRef: ElementRef) { }
+  constructor(private elRef: ElementRef, private homeService: HomeService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @HostListener('mousedown', ['$event'])
   mouseDown(event: MouseEvent) {
@@ -28,13 +35,30 @@ export class ContractionsComponent implements OnInit {
   @HostListener('mouseup', ['$event'])
   mouseUp(event: MouseEvent) {
     this.holdTime = Date.now() - this.holdStart;
-    this.frequency = this.holdTime / this.contractionsCount / 100;
+    if (this.countContractions && this.lastContraction) {
+      this.lastContraction.duration = this.holdTime / this.countContractions / 100;
+    }else if (this.countContractions){
+      this.frequency = this.holdTime / this.countContractions / 100;
+    }
   }
 
   countContraction() {
-    this.contractionsCount++;
-    let date = new Date();
-    this.timeStamp = date.toLocaleDateString('en-GB', {weekday: 'long', hour: 'numeric', minute: 'numeric'})
-  };
+    if (this.countContractions && this.lastContraction) {
+      // this.countContractions++;{
+      const date = new Date();
+      this.timeStamp = date.toLocaleDateString('en-GB', {weekday: 'long', hour: 'numeric', minute: 'numeric'});
+      this.lastContraction.dateTime = this.timeStamp;
+      this.countChanged.emit(this.countContractions += 1);
+      this.lastContractionChangedDuration.emit(this.lastContraction.duration);
+      this.lastContractionChangedDate.emit(this.lastContraction.dateTime);
+
+      let contraction: Contraction;
+      contraction = {
+        duration: this.lastContraction.duration,
+        dateTime: this.timeStamp,
+      };
+      this.homeService.saveNewContraction('1', contraction).subscribe();
+    }
+  }
 }
 

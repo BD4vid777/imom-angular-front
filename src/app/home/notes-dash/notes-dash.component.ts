@@ -51,7 +51,7 @@ export class NotesDashComponent implements OnInit {
     } else {this.snackbar.open('You cannot save empty note', 'ALERT!',{
       duration: 3000
     });
-  }}
+    }}
 
   openAllNotes(): void {
     const dialogRef = this.dialog.open(NotesDashDialog, {
@@ -74,10 +74,15 @@ export class NotesDashComponent implements OnInit {
 })
 export class NotesDashDialog {
 
-  constructor(private homeService: HomeService, private router: Router,
-    @Inject(MAT_DIALOG_DATA) public data: any) {}
+  constructor(private homeService: HomeService,
+              @Inject(MAT_DIALOG_DATA) public data: any) {}
 
   deleteNote(note: Note) {
-      this.homeService.deleteNote(note.id).subscribe();
+
+    const index: number = this.data.notes.indexOf(note);
+    if (index !== -1) {
+      this.data.notes.splice(index, 1);
     }
+    this.homeService.deleteNote(note.id).subscribe();
+  }
 }

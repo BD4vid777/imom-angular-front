@@ -7,7 +7,9 @@ import { BlogComponent } from './nav/blog/blog.component';
 import { ForumComponent } from './nav/forum/forum.component';
 import {ForumQuestionComponent} from './nav/forum/forum-question/forum-question.component';
 import {NewQuestionComponent} from './nav/forum/new-question/new-question.component';
+import {NewTaskComponent} from './home/calendar-dash/new-task/new-task.component';
 import {BlogArticleComponent} from './nav/blog/blog-article/blog-article.component';
+import {SearchQuestionComponent} from "./nav/forum/search-question/search-question.component";
 
 import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -28,6 +30,7 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+  {path: 'searched-questions', component: SearchQuestionComponent, canActivate: [AuthGuard]}
 ];
 
 @NgModule({

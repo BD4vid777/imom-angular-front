@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule } from "@angular/material/button";
+import { MatButtonModule } from '@angular/material/button';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -17,7 +17,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { FoodDashComponent } from './home/food-dash/food-dash.component';
 import { WelcomeDashComponent } from './home/welcome-dash/welcome-dash.component';
-import { CalendarDashComponent } from './home/calendar-dash/calendar-dash.component';
+import { CalendarDashComponent} from './home/calendar-dash/calendar-dash.component';
 import { ForumDashComponent } from './home/forum-dash/forum-dash.component';
 import { BlogDashComponent } from './home/blog-dash/blog-dash.component';
 import { NotesDashComponent, NotesDashDialog} from './home/notes-dash/notes-dash.component';
@@ -37,7 +37,6 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { NotesComponent } from './home/notes-dash/notes/notes.component';
 import { MatDialogModule } from "@angular/material/dialog";
 import { SearchQuestionComponent } from './nav/forum/search-question/search-question.component';
 import { UserTopicsComponent } from './nav/forum/user-topics/user-topics.component';
@@ -57,6 +56,12 @@ import {AuthGuard} from './authGuard/authGuard';
 
 import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
 import { GoogleLoginProvider } from 'angularx-social-login';
+import {TasksComponent} from './home/calendar-dash/tasks/tasks.component';
+import { CalendarTaskComponent } from './nav/calendar/calendar-task/calendar-task.component';
+import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.component';
+import { EditTaskComponent } from './home/calendar-dash/edit-task/edit-task.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 
 @NgModule({
@@ -79,7 +84,6 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     KicksComponent,
     HeaderComponent,
     LoginPageComponent,
-    NotesComponent,
     NotesDashDialog,
     SearchQuestionComponent,
     UserTopicsComponent,
@@ -87,10 +91,14 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     TopQuestionsComponent,
     ForumQuestionComponent,
     NewQuestionComponent,
+    TasksComponent,
+    CalendarTaskComponent,
+    NewTaskComponent,
     BlogArticleComponent,
     RegisterComponent,
     ProfileComponent,
-  ],
+    EditTaskComponent,
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -114,8 +122,10 @@ import { GoogleLoginProvider } from 'angularx-social-login';
     MatSnackBarModule,
     MatDialogModule,
     HttpClientModule,
+    SocialLoginModule,
     MatChipsModule,
-    SocialLoginModule
+    MatDatepickerModule,
+    MatCheckboxModule
   ],
   providers: [authInterceptorProviders, DatePipe, AuthGuard,
     {

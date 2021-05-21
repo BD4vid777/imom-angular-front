@@ -14,6 +14,14 @@ export class CalendarService {
     this.ROOT_URL = '';
   }
 
+  getUserCalendar(): Observable<any> {
+    return this.webRequestService.get('calendar');
+  }
+
+  getUserEvents(): Observable<any[]>{
+    return this.webRequestService.get('calendar-events');
+  }
+
   getTasks(): Observable<Task[]> {
     return this.webRequestService.get('users/1/tasks-before-birth');
   }
@@ -33,4 +41,6 @@ export class CalendarService {
   getTask(taskId: string): Observable<Task> {
     return this.webRequestService.get('tasks-before-birth/' + +taskId);
   }
+
+
 }

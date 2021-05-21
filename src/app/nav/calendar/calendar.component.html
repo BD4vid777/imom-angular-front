@@ -7,9 +7,9 @@
 <!--  <ngx-simple-calendar [options]="options1"></ngx-simple-calendar>-->
 <!--</div>-->
 
-<div class="container">
+<div class="container" *ngIf="userEvents">
 
-  <ngx-simple-calendar [options]="options2" [events]="events">
+  <ngx-simple-calendar [options]="options2" [events]="userEvents">
     <ng-template #day
                  let-date="number" let-events="events" let-active="today" let-weekend="weekend">
 
@@ -17,9 +17,9 @@
         <span>{{date}}</span>
         <div class="events">
           <div class="event"
-               [style.background-color]="event.data.color"
+               [style.background-color]="color"
                *ngFor="let event of events"
-               [title]="event.data.name + event.data.description + event.data.location"></div>
+               [title]="event.name + event.description + event.location"></div>
         </div>
       </div>
 
@@ -28,5 +28,5 @@
 
 </div>
 
-<button (click)="addDate()">Update events</button>
+<button (click)="addDate()">Add event</button>
 </mat-card>

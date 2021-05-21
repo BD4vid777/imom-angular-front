@@ -4,6 +4,8 @@ import {Observable} from 'rxjs';
 import { Task } from '../model/task';
 import {newTask} from '../model/newTask';
 import {UserEvent} from '../model/userEvent';
+import {CalendarEvent} from "ngx-simple-calendar/lib/data-models/data-calendar";
+import {EventCalendar} from "../model/eventCalendar";
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +21,7 @@ export class CalendarService {
   //   return this.webRequestService.get('calendar');
   // }
 
-  getUserEvents(): Observable<UserEvent[]>{
+  getUserEvents(): Observable<EventCalendar[]>{
     return this.webRequestService.get('calendar-events');
   }
 

@@ -1,8 +1,7 @@
 import { sampleOne } from './sample-data';
 import {Component, Input, OnInit} from '@angular/core';
-import {CalendarService} from "./service/calendar-task.service";
-import {UserEvent} from "./model/userEvent";
-import {ForumQuestion} from "../forum/model/forumQuestion";
+import {CalendarService} from './service/calendar-task.service';
+import {EventCalendar} from './model/eventCalendar';
 
 @Component({
   selector: 'app-calendar',
@@ -10,7 +9,8 @@ import {ForumQuestion} from "../forum/model/forumQuestion";
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
-  userEvents: UserEvent[] = [];
+  userEvents: EventCalendar[] = [];
+  color = '#3365ed';
 
   constructor(private calendarService: CalendarService) { }
   title = 'ngx-calendar';
@@ -24,15 +24,25 @@ export class CalendarComponent implements OnInit {
     evenDayDimensions: true
   };
 
-  events = sampleOne;
+
 
   addDate() {
-    // this.events = sampleOne;
+    // this.calendarService.addNewEvent().subscribe();
   }
 
   ngOnInit(): void {
-    // this.calendarService.getUserEvents().subscribe(events => events.forEach(userEvent =>  console.log(userEvent.name)));
-    this.calendarService.getUserEvents().subscribe(events => this.userEvents = events);
-    console.log(this.userEvents.forEach(userEvent => userEvent.name));
+    this.calendarService.getUserEvents().subscribe(events => events.forEach(event => {
+      let newEvent!: EventCalendar;
+      newEvent = {
+        startDateTime: new Date(event.startDateTime),
+        endDateTime: new Date(event.endDateTime),
+        name: event.data.name,
+        description: event.data.description,
+        location: event.data.location,
+      };
+      this.userEvents.push(newEvent);
+    }));
   }
 }
+
+

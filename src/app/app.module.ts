@@ -62,6 +62,7 @@ import { NewTaskComponent } from './home/calendar-dash/new-task/new-task.compone
 import { EditTaskComponent } from './home/calendar-dash/edit-task/edit-task.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
 
 
 @NgModule({
@@ -125,7 +126,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     SocialLoginModule,
     MatChipsModule,
     MatDatepickerModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    NgxSimpleCalendarModule
   ],
   providers: [authInterceptorProviders, DatePipe, AuthGuard,
     {

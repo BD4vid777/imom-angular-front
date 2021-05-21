@@ -98,7 +98,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     RegisterComponent,
     ProfileComponent,
     EditTaskComponent,
-    ],
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

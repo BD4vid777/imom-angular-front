@@ -25,9 +25,10 @@ export class AuthService {
     return this.http.post(AUTH_API + 'google-signin', token, httpOptions);
   }
 
-  register(username: string, email: string, password: string): Observable<any> {
+  register(username: string, name: string, email: string, password: string): Observable<any> {
     return this.http.post(AUTH_API + 'signup', {
       username,
+      name,
       email,
       password
     }, httpOptions);

@@ -1,6 +1,6 @@
 <mat-card class="view-port">
-  <app-search-question  ng-model="searchText" ></app-search-question>
   <a class="add_q_button" [routerLink]="['/new-question']">ADD QUESTION</a>
+  <app-search-question  ng-model="searchText" ></app-search-question>
   <app-user-topics [userQuestions] = "userQuestions"></app-user-topics>
   <app-last-added [lastAddedQuestion] = "lastAddedQuestions" class="last_added"></app-last-added>
   <app-top-questions [topQuestions] = "forumQuestions" class="top_questions"></app-top-questions>

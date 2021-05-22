@@ -7,6 +7,7 @@ import {HomeService} from '../service/home.service';
 import {DatePipe, formatDate} from '@angular/common';
 import {BehaviorSubject} from 'rxjs';
 import { Router, ActivatedRoute } from '@angular/router';
+import {TokenStorageService} from "../../_services/token-storage.service";
 
 @Component({
   selector: 'app-notes-dash',
@@ -15,15 +16,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NotesDashComponent implements OnInit {
 
-  username = "Agnieszka";
+  username?: string;
   @Input() userNotes!: Note[];
   @Output() demo: EventEmitter<string> = new EventEmitter();
 
   constructor(private snackbar: MatSnackBar, public dialog: MatDialog,
               private homeService: HomeService, private router: Router,
-              private datePipe: DatePipe) { }
+              private datePipe: DatePipe, private userInfo: TokenStorageService) { }
 
   ngOnInit(): void {
+    this.username = this.userInfo.getUser().username;
   }
 
   saveNote(value: string) {

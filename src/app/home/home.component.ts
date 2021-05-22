@@ -10,6 +10,7 @@ import {HomeService} from './service/home.service';
 import {PregnancyInfo} from '../models/pregnancyInfo';
 import {Note} from '../models/note.object';
 import {Contraction} from "../models/contraction";
+import {LoginPageComponent} from "../login-page/login-page.component";
 
 @Component({
   selector: 'app-home',

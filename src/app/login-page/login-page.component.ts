@@ -11,7 +11,8 @@ import {WebRequestService} from '../web-request.service';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-
+  public userName?: string;
+  public id?: string;
   form: any = {
     username: null,
     password: null
@@ -44,7 +45,10 @@ export class LoginPageComponent implements OnInit {
       data => {
         this.tokenStorage.saveToken(data.accessToken);
         this.tokenStorage.saveUser(data);
-
+        console.log(data.username);
+        console.log(data.id);
+        this.userName = data.username;
+        this.id = data.id;
         this.isLoginFailed = false;
         this.isLoggedIn = true;
         this.roles = this.tokenStorage.getUser().roles;
@@ -58,7 +62,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   reloadPage(): void {
-    window.location.replace("/home")
+    window.location.replace("/home");
   }
 
   loginWithGoogle(): void {
@@ -67,7 +71,10 @@ export class LoginPageComponent implements OnInit {
         data => {
           this.tokenStorage.saveToken(data.accessToken);
           this.tokenStorage.saveUser(data);
-
+          console.log(data.username);
+          console.log(data.id);
+          this.userName = data.username;
+          this.id = data.id;
           this.isLoginFailed = false;
           this.isLoggedIn = true;
           this.roles = this.tokenStorage.getUser().roles;

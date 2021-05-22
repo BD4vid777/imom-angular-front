@@ -3,6 +3,7 @@ import { ThemePalette } from '@angular/material/core';
 import { Observable } from "rxjs";
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { map, shareReplay } from "rxjs/operators";
+import {TokenStorageService} from "../../_services/token-storage.service";
 
 
 @Component({
@@ -14,7 +15,7 @@ export class HeaderComponent implements OnInit {
   color: ThemePalette = 'primary';
   checked = false;
   disabled = true;
-  username: string = "Agnieszka";
+  username?: string;
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
@@ -22,9 +23,11 @@ export class HeaderComponent implements OnInit {
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver, private userInfo: TokenStorageService) { }
 
   ngOnInit(): void {
+    const user = this.userInfo.getUser();
+    this.username = user.username;
   }
 
 }

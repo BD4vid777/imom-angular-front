@@ -4,6 +4,7 @@ export interface EventCalendar extends CalendarEvent{
   startDateTime: Date;
   endDateTime: Date;
   name: string;
-  description: string;
   location: string;
+  description: string;
+  // status: string;
 }

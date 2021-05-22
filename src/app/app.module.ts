@@ -63,6 +63,9 @@ import { EditTaskComponent } from './home/calendar-dash/edit-task/edit-task.comp
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
+import { NewEventComponent } from './nav/calendar/new-event/new-event.component';
+import {MatNativeDateModule} from '@angular/material/core';
+
 
 
 @NgModule({
@@ -99,6 +102,7 @@ import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
     RegisterComponent,
     ProfileComponent,
     EditTaskComponent,
+    NewEventComponent,
   ],
   imports: [
     BrowserModule,
@@ -127,7 +131,9 @@ import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
     MatChipsModule,
     MatDatepickerModule,
     MatCheckboxModule,
-    NgxSimpleCalendarModule
+    NgxSimpleCalendarModule,
+    MatNativeDateModule,
+
   ],
   providers: [authInterceptorProviders, DatePipe, AuthGuard,
     {

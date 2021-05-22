@@ -1,7 +1,12 @@
 import { sampleOne } from './sample-data';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {CalendarService} from './service/calendar-task.service';
 import {EventCalendar} from './model/eventCalendar';
+import {HomeService} from "../../home/service/home.service";
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {NewTaskComponent} from "../../home/calendar-dash/new-task/new-task.component";
+import {NewEventComponent} from "./new-event/new-event.component";
+
 
 @Component({
   selector: 'app-calendar',
@@ -12,7 +17,7 @@ export class CalendarComponent implements OnInit {
   userEvents: EventCalendar[] = [];
   color = '#3365ed';
 
-  constructor(private calendarService: CalendarService) { }
+  constructor(private calendarService: CalendarService, public dialog: MatDialog,) { }
   title = 'ngx-calendar';
 
   options1 = {
@@ -36,12 +41,19 @@ export class CalendarComponent implements OnInit {
       newEvent = {
         startDateTime: new Date(event.startDateTime),
         endDateTime: new Date(event.endDateTime),
-        name: event.data.name,
-        description: event.data.description,
-        location: event.data.location,
+        name: event.name,
+        description: event.description,
+        location: event.location,
       };
       this.userEvents.push(newEvent);
     }));
+  }
+
+  addEvent() {const dialogRef = this.dialog.open(NewEventComponent, {
+    width: '400px'});
+              dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 }
 

@@ -11,9 +11,6 @@ export class AppComponent {
   isLoggedIn = false;
   username?: string;
 
-  // title = 'iMom';
-  // loggedIn: boolean = false;
-
   constructor(private tokenStorageService: TokenStorageService) { }
 
   ngOnInit(): void {

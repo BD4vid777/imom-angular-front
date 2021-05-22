@@ -32,6 +32,10 @@ const routes: Routes = [
   {path: 'searched-questions', component: SearchQuestionComponent, canActivate: [AuthGuard]}
 ];
 
+
+
+
+
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]

@@ -700,3 +700,38 @@ body, h1, h2, h3, p {
     width: 20%;
   }
 }
+
+//// FORUM ////////////////////////////
+
+.user-q-container {
+  height: 40%;
+  margin: 2rem 0;
+  cursor: row-resize;
+  @include FlexJusCont(row, space-between);
+  @include OverFlowNoScrollBars();
+
+  app-user-topics,
+  app-last-added {
+    width: 40%;
+  }
+}
+
+.searched-top {
+  height: 40%;
+  @include OverFlowNoScrollBars();
+  cursor: row-resize;
+}
+
+.question-card {
+  width: 400px;
+  margin-bottom: 1rem;
+
+  .last-content {
+    @include FlexJusCont(row, space-between);
+    align-items: center;
+
+    p {
+      margin: 0!important;
+    }
+  }
+}

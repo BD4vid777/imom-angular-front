@@ -57,6 +57,7 @@ export class EditTaskComponent implements OnInit {
     }
     this.demo.emit(task);
     this.calendarTaskService.editTask(task).subscribe();
+    window.location.reload();
   }
 }
 

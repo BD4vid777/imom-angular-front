@@ -46,6 +46,7 @@ export class NotesDashComponent implements OnInit {
         this.homeService.postNewNote(newNote, '1').subscribe();
       }
       this.demo.emit('data change');
+      window.location.reload();
       console.log(newNote);
       this.snackbar.open('Note saved successfully', '',{
         duration: 3000

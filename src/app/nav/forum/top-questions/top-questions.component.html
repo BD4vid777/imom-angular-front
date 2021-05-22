@@ -1,38 +1,39 @@
-<div *ngIf="searchedQuestions.length<1; else searchingQuestions">
-<div *ngIf="topQuestions" class="top_questions">
-  <p>Top Questions</p>
-  <div  class="question_titles">
-    <ul class="top_questions">
-      <li *ngFor="let question of topQuestions">
-        <a [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</a>
-        <p>{{question.likesQuantity}}</p>
-        <p>{{question.numberOfAnswers}}</p>
-    </ul>
+<div class="searched-top">
+  <div class="search-bar-container">
+    <mat-form-field class="search-input" appearance="outline">
+      <mat-icon matSuffix (click)="search(searchBox.value)" >search</mat-icon>
+      <mat-label class="mr-2" for="search-box">Search Question</mat-label>
+      <input #searchBox id="search-box" matInput placeholder="Write here...">
+    </mat-form-field>
   </div>
-</div>
-</div>
-
-<div class="search-bar-container">
-  <mat-form-field class="search-input" appearance="outline">
-    <mat-icon matSuffix (click)="search(searchBox.value)" >search</mat-icon>
-    <mat-label class="mr-2" for="search-box">Search Question</mat-label>
-    <input #searchBox id="search-box" matInput placeholder="Write here...">
-  </mat-form-field>
-</div>
-
-<ng-template #searchingQuestions>
-  <div *ngIf="searchedQuestions">
-    <p>Searched Questions</p>
-    <div  class="question_titles">
-      <ul class="top_questions">
-        <li *ngFor="let question of searchedQuestions">
-          <a [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</a>
-          <p>{{question.likesQuantity}}</p>
-          <p>{{question.numberOfAnswers}}</p>
-      </ul>
+  <div *ngIf="searchedQuestions.length<1; else searchingQuestions">
+    <div *ngIf="topQuestions">
+      <h3>Top Questions</h3>
+      <div *ngFor="let question of topQuestions">
+        <mat-card class="question-card">
+          <div class="last-content">
+            <button mat-stroked-button color="primary" [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</button>
+            <p><mat-icon class="material-icons menu-icon">thumb_up_off_alt</mat-icon>{{question.likesQuantity}}</p>
+            <p><mat-icon class="material-icons menu-icon">question_answer</mat-icon>{{question.numberOfAnswers}}</p>
+          </div>
+        </mat-card>
+      </div>
     </div>
   </div>
-</ng-template>
-<!--<label class="mr-2" for="search-box">Product Search</label>-->
-<!--<input #searchBox id="search-box"/>-->
-<!--<button class="ml-2 bg-green text-white" (click)="search(searchBox.value)">Search</button>-->
+  <ng-template #searchingQuestions>
+    <div *ngIf="searchedQuestions">
+      <h3>Searched Questions</h3>
+      <div *ngFor="let question of searchedQuestions">
+        <mat-card class="question-card">
+          <div class="last-content">
+            <button mat-stroked-button color="primary" [routerLink] = "['/forum-question', question.id]">{{question.questionTitle}}</button>
+            <p><mat-icon class="material-icons menu-icon">thumb_up_off_alt</mat-icon>{{question.likesQuantity}}</p>
+            <p><mat-icon class="material-icons menu-icon">question_answer</mat-icon>{{question.numberOfAnswers}}</p>
+          </div>
+        </mat-card>
+      </div>
+    </div>
+  </ng-template>
+
+</div>
+

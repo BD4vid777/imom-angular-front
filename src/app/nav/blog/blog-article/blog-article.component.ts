@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BlogService} from '../service/blog.service';
 import {BlogPost} from '../../../models/blog-post.object';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -14,11 +14,11 @@ export class BlogArticleComponent implements OnInit {
   id: any;
   sub: any;
 
-  constructor(private Activatedroute: ActivatedRoute,
+  constructor(private ActivatedRoute: ActivatedRoute,
               private router: Router, private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.sub = this.Activatedroute.paramMap.subscribe(params => {
+    this.sub = this.ActivatedRoute.paramMap.subscribe(params => {
       console.log(params);
       this.id = params.get('id');
       this.blogService.getBlogPostById(this.id).subscribe(article => this.article = article);

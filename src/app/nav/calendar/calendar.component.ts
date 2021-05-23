@@ -1,10 +1,15 @@
 import { sampleOne } from './sample-data';
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {CalendarService} from './service/calendar-task.service';
 import {EventCalendar} from './model/eventCalendar';
 import {Task} from "./model/task";
 import {EditTaskComponent} from "../../home/calendar-dash/edit-task/edit-task.component";
 import {MatDialog} from "@angular/material/dialog";
+import {HomeService} from "../../home/service/home.service";
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {NewTaskComponent} from "../../home/calendar-dash/new-task/new-task.component";
+import {NewEventComponent} from "./new-event/new-event.component";
+
 
 @Component({
   selector: 'app-calendar',
@@ -40,9 +45,9 @@ export class CalendarComponent implements OnInit {
       newEvent = {
         startDateTime: new Date(event.startDateTime),
         endDateTime: new Date(event.endDateTime),
-        name: event.data.name,
-        description: event.data.description,
-        location: event.data.location,
+        name: event.name,
+        description: event.description,
+        location: event.location,
       };
       this.userEvents.push(newEvent);
     }));
@@ -73,6 +78,13 @@ export class CalendarComponent implements OnInit {
     };
     this.calendarService.editTask(task).subscribe();
 
+  }
+
+  addEvent() {const dialogRef = this.dialog.open(NewEventComponent, {
+    width: '400px'});
+              dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+    });
   }
 }
 

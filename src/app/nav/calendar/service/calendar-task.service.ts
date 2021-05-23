@@ -44,4 +44,7 @@ export class CalendarService {
   }
 
 
+  postNewEvent(userEvent: EventCalendar): Observable<any> {
+    return this.webRequestService.post('new-event', userEvent);
+  }
 }

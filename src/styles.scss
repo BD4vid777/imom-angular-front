@@ -735,3 +735,17 @@ body, h1, h2, h3, p {
     }
   }
 }
+
+//// CALENDAR /////////////////////////
+
+.calendar-all-container {
+  @include FlexJusCont(row, space-between);
+
+  .calendar-container {
+    width: 60%;
+  }
+
+  .calendar-tasks-container {
+    width: 30%;
+  }
+}

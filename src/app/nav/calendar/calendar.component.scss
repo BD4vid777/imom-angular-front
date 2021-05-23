@@ -1,9 +1,29 @@
+
+
+.full-calendar-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tasks-container {
+  width: 40%;
+  margin: 2rem;
+  text-align: center;
+}
+
+.calendar-container {
+  width: 60%;
+}
+
 .container {
   position: relative;
   height: 70rem;
   width: 70rem;
   margin: 2rem;
+  font-family: 'Nunito', sans-serif!important;
 }
+
 :host {
   display: flex;
   overflow: auto;
@@ -47,3 +67,5 @@
   margin-top: 0.4rem;
   cursor: pointer;
 }
+
+

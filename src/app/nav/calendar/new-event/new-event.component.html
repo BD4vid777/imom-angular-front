@@ -9,33 +9,20 @@
   </mat-form-field>
   <mat-form-field>
     <mat-label>Location</mat-label>
-    <textarea matInput placeholder="I have to do..." value="" name="newEvent.eventText"  formControlName="eventLocation"></textarea>
+    <textarea matInput placeholder="Where it will be..." value="" name="newEvent.eventText"  formControlName="eventLocation"></textarea>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Start Date</mat-label>
     <input matInput type="datetime-local" formControlName="eventStart">
-<!--    <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>-->
-<!--    <mat-datepicker #picker1></mat-datepicker>-->
-  </mat-form-field>
 
-<!--  <mat-form-field>-->
-<!--  <mat-label>Start Time</mat-label>-->
-<!--  <input  matInput  [ngxTimepicker]="pickerTime1" formControlName="eventStartTime">-->
-<!--  <ngx-material-timepicker matSuffix #pickerTime1></ngx-material-timepicker>-->
-<!--  </mat-form-field>-->
+  </mat-form-field>
 
   <mat-form-field>
     <mat-label>End Date</mat-label>
     <input matInput  type="datetime-local"formControlName="eventEnd">
-<!--    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>-->
-<!--    <mat-datepicker #picker2></mat-datepicker>-->
+
   </mat-form-field>
 
-<!--  <mat-form-field>-->
-<!--    <mat-label>End Time</mat-label>-->
-<!--    <input  matInput  [ngxTimepicker]="pickerTime2" formControlName="eventEndTime">-->
-<!--    <ngx-material-timepicker matSuffix #pickerTime2></ngx-material-timepicker>-->
-<!--  </mat-form-field>-->
   <button mat-raised-button color="primary" type="submit" mat-dialog-close [disabled]="!userForm.form.valid" >Save</button>
 </form>

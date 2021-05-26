@@ -52,8 +52,8 @@ export class EditTaskComponent implements OnInit {
       }
       console.log(task.taskText, task.taskName, task.taskStatus);
       // this.calendarComponent.refreshTasks();
-      const navigationDetails: string[] = ['/home'];
-      this.router.navigate(navigationDetails);
+      // const navigationDetails: string[] = ['/home'];
+      // this.router.navigate(navigationDetails);
     }
     this.demo.emit(task);
     this.calendarTaskService.editTask(task).subscribe();

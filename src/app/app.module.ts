@@ -24,7 +24,7 @@ import { NotesDashComponent, NotesDashDialog} from './home/notes-dash/notes-dash
 import { CountersDashComponent } from './home/counters-dash/counters-dash.component';
 import { FoodComponent } from './nav/food/food.component';
 import { CalendarComponent } from './nav/calendar/calendar.component';
-import { BlogComponent } from './nav/blog/blog.component';
+import { BlogComponent, BlogArticleDialog } from './nav/blog/blog.component';
 import { ForumComponent } from './nav/forum/forum.component';
 import { ContractionsComponent } from './home/counters-dash/contractions/contractions.component';
 import { KicksComponent } from './home/counters-dash/kicks/kicks.component';
@@ -38,7 +38,6 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDialogModule } from "@angular/material/dialog";
-import { SearchQuestionComponent } from './nav/forum/search-question/search-question.component';
 import { UserTopicsComponent } from './nav/forum/user-topics/user-topics.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LastAddedComponent } from './nav/forum/last-added/last-added.component';
@@ -89,7 +88,6 @@ import {CalendarBuildComponent} from './nav/calendar/calendar-build/calendar-bui
     HeaderComponent,
     LoginPageComponent,
     NotesDashDialog,
-    SearchQuestionComponent,
     UserTopicsComponent,
     LastAddedComponent,
     TopQuestionsComponent,
@@ -99,6 +97,7 @@ import {CalendarBuildComponent} from './nav/calendar/calendar-build/calendar-bui
     CalendarTaskComponent,
     NewTaskComponent,
     BlogArticleComponent,
+    BlogArticleDialog,
     RegisterComponent,
     ProfileComponent,
     EditTaskComponent,

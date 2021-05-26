@@ -46,6 +46,7 @@ export class NewTaskComponent implements OnInit {
       this.router.navigate(navigationDetails);
     }
     this.calendarTaskService.postNewTask(task, '1').subscribe();
+    window.location.reload();
 
 
   }

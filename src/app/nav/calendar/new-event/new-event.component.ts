@@ -20,7 +20,6 @@ export class NewEventComponent implements OnInit {
     eventStart: new FormControl(),
     eventEnd: new FormControl(),
 
-
   });
 
 
@@ -38,6 +37,8 @@ export class NewEventComponent implements OnInit {
     // tslint:disable-next-line:forin
     for (const field in this.eventForm.controls) {
       // tslint:disable-next-line:prefer-const
+      console.log( this.eventForm.controls.eventStart.value);
+      console.log(this.eventForm.controls.eventEnd.value);
       event = {
         name: this.eventForm.controls.eventName.value,
         description: this.eventForm.controls.eventText.value,

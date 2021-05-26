@@ -65,7 +65,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
 import { NewEventComponent } from './nav/calendar/new-event/new-event.component';
 import {MatNativeDateModule} from '@angular/material/core';
-
+import {CalendarBuildComponent} from './nav/calendar/calendar-build/calendar-build.component';
 
 
 @NgModule({
@@ -103,6 +103,7 @@ import {MatNativeDateModule} from '@angular/material/core';
     ProfileComponent,
     EditTaskComponent,
     NewEventComponent,
+    CalendarBuildComponent,
   ],
   imports: [
     BrowserModule,
@@ -133,7 +134,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatCheckboxModule,
     NgxSimpleCalendarModule,
     MatNativeDateModule,
-
   ],
   providers: [authInterceptorProviders, DatePipe, AuthGuard,
     {

@@ -1,8 +1,17 @@
 import {Component, Inject, Input, NgZone, OnInit} from '@angular/core';
+import {sampleOne} from './sample-data';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {CalendarService} from './service/calendar-task.service';
 import {EventCalendar} from './model/eventCalendar';
 import {Task} from "./model/task";
 import {EditTaskComponent} from "../../home/calendar-dash/edit-task/edit-task.component";
+import {HomeService} from '../../home/service/home.service';
+import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
+import {NewTaskComponent} from '../../home/calendar-dash/new-task/new-task.component';
+import {NewEventComponent} from './new-event/new-event.component';
+
+import {Task} from './model/task';
+import {EditTaskComponent} from '../../home/calendar-dash/edit-task/edit-task.component';
 import {HomeService} from '../../home/service/home.service';
 import {MAT_DIALOG_DATA, MatDialog} from '@angular/material/dialog';
 import {NewTaskComponent} from '../../home/calendar-dash/new-task/new-task.component';

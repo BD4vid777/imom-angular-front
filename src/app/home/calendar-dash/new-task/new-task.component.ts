@@ -45,8 +45,7 @@ export class NewTaskComponent implements OnInit {
       const navigationDetails: string[] = ['/home'];
       this.router.navigate(navigationDetails);
     }
-    this.calendarTaskService.postNewTask(task, '1').subscribe();
-    window.location.reload();
+    this.calendarTaskService.postNewTask(task, '1');
 
 
   }

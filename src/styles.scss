@@ -650,6 +650,10 @@ body, h1, h2, h3, p {
 }
 
 //// BLOG /////////////////////////////
+.blog-post {
+  font-size: large;
+  line-height: 2;
+}
 
 .blog-content-container {
   height: 93%;
@@ -666,11 +670,15 @@ body, h1, h2, h3, p {
       .blog-post-footer {
         @include FlexJusCont(row, space-between);
 
+
         mat-card-footer {
           margin: auto 0;
         }
       }
     }
+  }
+  .date{
+    font-size: medium;
   }
 
   .other-articles-container {

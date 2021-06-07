@@ -19,7 +19,8 @@ export class BlogService {
   }
 
   getBlogPostById(id: string): Observable<BlogPost> {
-    return this.webRequestService.get('blog/article' + '/' + id);
+    console.log(id);
+    return this.webRequestService.get('blog/article/' + id);
   }
 
   getTopicOfTheDay(): Observable<BlogPost> {

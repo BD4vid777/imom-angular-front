@@ -12,7 +12,7 @@
           <mat-card-title>{{topic.title}}</mat-card-title>
           <mat-card-content>{{topic.text}}</mat-card-content><br>
           <div class="blog-post-footer">
-            <button mat-raised-button color="primary" (click)= "openTopic(topic)">Read more</button>
+            <button mat-raised-button color="primary" [routerLink] = "['/blog/article/', topic.id]">Read more</button>
             <mat-card-footer>{{topic.date}}</mat-card-footer>
           </div>
         </mat-card>
@@ -27,7 +27,7 @@
               <mat-card-title>{{post.title}}</mat-card-title>
               <mat-card-content>{{post.text}}</mat-card-content><br>
               <div class="blog-post-footer">
-                <button mat-raised-button color="primary" (click)= "openTopic(post)">Read more</button>
+                <button mat-raised-button color="primary" [routerLink] = "['/blog/article/', post.id]">Read more</button>
                 <mat-card-footer>{{post.date}}</mat-card-footer>
               </div>
             </mat-card>
@@ -41,7 +41,7 @@
                   <mat-card-title>{{post.title}}</mat-card-title>
                   <mat-card-content>{{post.text}}</mat-card-content><br>
                   <div class="blog-post-footer">
-                    <button mat-raised-button color="primary" (click)= "openTopic(post)">Read more</button>
+                    <button mat-raised-button color="primary" [routerLink] = "['/blog/article/', post.id]">Read more</button>
                     <mat-card-footer>{{post.date}}</mat-card-footer>
                   </div>
                 </mat-card>

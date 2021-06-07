@@ -23,7 +23,8 @@ export class LoginPageComponent implements OnInit {
   roles: string[] = [];
   socialUser?: SocialUser;
 
-  constructor(private authService: AuthService, private tokenStorage: TokenStorageService, private socialAuthService: SocialAuthService, private web: WebRequestService) { }
+  constructor(private authService: AuthService, private tokenStorage: TokenStorageService,
+              private socialAuthService: SocialAuthService, private web: WebRequestService) { }
 
   ngOnInit(): void {
     if (this.tokenStorage.getToken()) {

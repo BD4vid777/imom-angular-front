@@ -20,6 +20,7 @@ export class ForumService {
   }
 
   getForumQuestionById(questionId: string): Observable<ForumQuestion> {
+    console.log('ddd');
     return this.webRequestService.get(this.ROOT_URL + '/' + questionId);
   }
 

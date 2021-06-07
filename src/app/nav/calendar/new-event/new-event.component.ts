@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {FormControl, FormGroup} from "@angular/forms";
 import {CalendarService} from "../service/calendar-task.service";
 import {Router} from "@angular/router";
@@ -10,7 +10,7 @@ import {EventCalendar} from "../model/eventCalendar";
   styleUrls: ['./new-event.component.scss']
 })
 export class NewEventComponent implements OnInit {
-
+  @Output() addingEvent: EventEmitter<string> = new EventEmitter();
   public newEvent?: EventCalendar;
   public formSubmitted: boolean;
   eventForm = new FormGroup({
@@ -19,7 +19,6 @@ export class NewEventComponent implements OnInit {
     eventLocation: new FormControl(''),
     eventStart: new FormControl(),
     eventEnd: new FormControl(),
-
 
   });
 
@@ -38,6 +37,8 @@ export class NewEventComponent implements OnInit {
     // tslint:disable-next-line:forin
     for (const field in this.eventForm.controls) {
       // tslint:disable-next-line:prefer-const
+      console.log( this.eventForm.controls.eventStart.value);
+      console.log(this.eventForm.controls.eventEnd.value);
       event = {
         name: this.eventForm.controls.eventName.value,
         description: this.eventForm.controls.eventText.value,
@@ -47,8 +48,9 @@ export class NewEventComponent implements OnInit {
         // status: "false";
       };
       console.log(event.name, event.description);
+      this.addingEvent.emit('new event');
       // this.calendarComponent.refreshTasks();
-      // const navigationDetails: string[] = ['/home'];
+      // const navigationDetails: string[] = ['/calendar'];
       // this.router.navigate(navigationDetails);
     }
     this.calendarTaskService.postNewEvent(event).subscribe();

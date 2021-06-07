@@ -11,7 +11,7 @@ export class ContractionsComponent implements OnInit {
 
   @Input() countContractions?: number;
   @Input() lastContraction?: Contraction;
-  @Output() countChanged: EventEmitter<number> =   new EventEmitter();
+  @Output() countChanged: EventEmitter<number> = new EventEmitter();
   @Output() lastContractionChangedDuration: EventEmitter<number> = new EventEmitter();
   @Output() lastContractionChangedDate: EventEmitter<string> = new EventEmitter();
 

@@ -24,7 +24,7 @@ import { NotesDashComponent, NotesDashDialog} from './home/notes-dash/notes-dash
 import { CountersDashComponent } from './home/counters-dash/counters-dash.component';
 import { FoodComponent } from './nav/food/food.component';
 import { CalendarComponent } from './nav/calendar/calendar.component';
-import { BlogComponent, BlogArticleDialog } from './nav/blog/blog.component';
+import { BlogComponent } from './nav/blog/blog.component';
 import { ForumComponent } from './nav/forum/forum.component';
 import { ContractionsComponent } from './home/counters-dash/contractions/contractions.component';
 import { KicksComponent } from './home/counters-dash/kicks/kicks.component';
@@ -64,7 +64,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
 import { NewEventComponent } from './nav/calendar/new-event/new-event.component';
 import {MatNativeDateModule} from '@angular/material/core';
-
+import {CalendarBuildComponent} from './nav/calendar/calendar-build/calendar-build.component';
 
 
 @NgModule({
@@ -97,11 +97,11 @@ import {MatNativeDateModule} from '@angular/material/core';
     CalendarTaskComponent,
     NewTaskComponent,
     BlogArticleComponent,
-    BlogArticleDialog,
     RegisterComponent,
     ProfileComponent,
     EditTaskComponent,
     NewEventComponent,
+    CalendarBuildComponent,
   ],
   imports: [
     BrowserModule,
@@ -132,7 +132,6 @@ import {MatNativeDateModule} from '@angular/material/core';
     MatCheckboxModule,
     NgxSimpleCalendarModule,
     MatNativeDateModule,
-
   ],
   providers: [authInterceptorProviders, DatePipe, AuthGuard,
     {

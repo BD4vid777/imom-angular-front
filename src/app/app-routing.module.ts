@@ -21,13 +21,15 @@ const routes: Routes = [
   {path: 'food', component: FoodComponent, canActivate: [AuthGuard]},
   {path: 'calendar', component: CalendarComponent, canActivate: [AuthGuard]},
   {path: 'blog', component: BlogComponent, canActivate: [AuthGuard]},
+  {path: 'blog/article/:id', component: BlogArticleComponent, canActivate: [AuthGuard]},
   {path: 'forum', component: ForumComponent, canActivate: [AuthGuard]},
   {path: 'forum-question/:id', component: ForumQuestionComponent, canActivate: [AuthGuard]},
-  {path: 'blog-article/:id', component: BlogArticleComponent, canActivate: [AuthGuard]},
+  // {path: 'blog-article/:id', component: BlogArticleComponent, canActivate: [AuthGuard]},
   {path: 'new-question', component: NewQuestionComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard] },
+
 ];
 
 

@@ -650,6 +650,10 @@ body, h1, h2, h3, p {
 }
 
 //// BLOG /////////////////////////////
+.blog-post {
+  font-size: large;
+  line-height: 2;
+}
 
 .blog-content-container {
   height: 93%;
@@ -658,7 +662,7 @@ body, h1, h2, h3, p {
   justify-content: space-between;
 
   .topic-of-the-day-container {
-    width: 30%;
+    width: 40%;
 
     .blog-post-container {
       margin: 1rem;
@@ -666,15 +670,19 @@ body, h1, h2, h3, p {
       .blog-post-footer {
         @include FlexJusCont(row, space-between);
 
+
         mat-card-footer {
           margin: auto 0;
         }
       }
     }
   }
+  .date{
+    font-size: medium;
+  }
 
   .other-articles-container {
-    width: 30%;
+    width: 60%;
     @include OverFlowNoScrollBars();
 
     .others-container {
@@ -696,9 +704,9 @@ body, h1, h2, h3, p {
     }
   }
 
-  .things-to-do-container {
-    width: 20%;
-  }
+  //.things-to-do-container {
+  //  width: 20%;
+  //}
 }
 
 //// FORUM ////////////////////////////

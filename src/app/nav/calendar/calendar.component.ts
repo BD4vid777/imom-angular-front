@@ -72,16 +72,16 @@ export class CalendarComponent implements OnInit {
   //
   // }
   //
-  // addEvent() {const dialogRef = this.dialog.open(NewEventComponent, {
-  //   width: '400px'});
-  //             dialogRef.afterClosed().subscribe(result => {
-  //     window.location.reload();
-  //   });
-  // }
-  //
-  // onChange(){
-  //   this.ngOnInit();
-  // }
+  addEvent() {const dialogRef = this.dialog.open(NewEventComponent, {
+    width: '400px'});
+              dialogRef.afterClosed().subscribe(result => {
+      window.location.reload();
+    });
+  }
+
+  onChange(){
+    this.ngOnInit();
+  }
 }
 
 

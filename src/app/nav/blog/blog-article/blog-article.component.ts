@@ -14,14 +14,16 @@ export class BlogArticleComponent implements OnInit {
   id: any;
   sub: any;
 
-  constructor(private ActivatedRoute: ActivatedRoute,
+  constructor(private Activatedroute: ActivatedRoute,
               private router: Router, private blogService: BlogService) { }
 
   ngOnInit(): void {
-    this.sub = this.ActivatedRoute.paramMap.subscribe(params => {
+    this.sub = this.Activatedroute.paramMap.subscribe(params => {
       console.log(params);
       this.id = params.get('id');
       this.blogService.getBlogPostById(this.id).subscribe(article => this.article = article);
+      if(this.article)
+      console.log(this.article.id);
     });
   }
 }

@@ -1,8 +1,8 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {BlogPost} from '../../models/blog-post.object';
 import {BlogService} from './service/blog.service';
-import { Router } from '@angular/router';
-import {MAT_DIALOG_DATA, MatDialog} from "@angular/material/dialog";
+// import { Router } from '@angular/router';
+// import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-blog',
@@ -18,7 +18,8 @@ export class BlogComponent implements OnInit {
 
   categorySelected = '';
 
-  constructor(private blogService: BlogService, public dialog: MatDialog) { }
+  constructor(private blogService: BlogService) {
+  }
 
   ngOnInit(): void {
     this.blogService.getTopicOfTheDay().subscribe(topic => this.topic = topic);
@@ -28,26 +29,27 @@ export class BlogComponent implements OnInit {
   selected(chip: string) {
     this.categorySelected = chip;
   }
-
-  openTopic(topic: BlogPost) {
-    const dialogRef = this.dialog.open(BlogArticleDialog, {
-      width: '800px',
-      data: {
-        articleTitle: topic.title,
-        articleText: topic.text,
-        articleDate: topic.date
-      }
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('Article was closed');
-    });
-  }
 }
 
-@Component({
-  selector: 'blog-article-dialog',
-  templateUrl: 'blog-article-dialog.html'
-})
-export class BlogArticleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
-}
+  // openTopic(topic: BlogPost) {
+  //   const dialogRef = this.dialog.open(BlogArticleDialog, {
+  //     width: '800px',
+  //     data: {
+  //       articleTitle: topic.title,
+  //       articleText: topic.text,
+  //       articleDate: topic.date
+  //     }
+  //   });
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('Article was closed');
+  //   });
+  // }
+// }
+
+// @Component({
+//   selector: 'blog-article-dialog',
+//   templateUrl: 'blog-article-dialog.html'
+// })
+// export class BlogArticleDialog {
+//   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {}
+// }

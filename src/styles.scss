@@ -658,7 +658,7 @@ body, h1, h2, h3, p {
   justify-content: space-between;
 
   .topic-of-the-day-container {
-    width: 30%;
+    width: 40%;
 
     .blog-post-container {
       margin: 1rem;
@@ -674,7 +674,7 @@ body, h1, h2, h3, p {
   }
 
   .other-articles-container {
-    width: 30%;
+    width: 60%;
     @include OverFlowNoScrollBars();
 
     .others-container {
@@ -696,9 +696,9 @@ body, h1, h2, h3, p {
     }
   }
 
-  .things-to-do-container {
-    width: 20%;
-  }
+  //.things-to-do-container {
+  //  width: 20%;
+  //}
 }
 
 //// FORUM ////////////////////////////

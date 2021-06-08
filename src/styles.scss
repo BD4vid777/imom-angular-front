@@ -712,48 +712,49 @@ body, h1, h2, h3, p {
 //// FORUM ////////////////////////////
 
 .user-q-container {
-  height: 40%;
+  height: 100%;
   margin: 2rem 0;
   cursor: row-resize;
   @include FlexJusCont(row, space-between);
   @include OverFlowNoScrollBars();
 
-  app-user-topics,
-  app-last-added {
-    width: 40%;
-  }
-}
+  //app-user-topics,
+  //  app-last-added {
+  //    width: 40%;
+  //  }
+  //}
 
-.searched-top {
-  height: 40%;
-  @include OverFlowNoScrollBars();
-  cursor: row-resize;
-}
+  //.searched-top {
+  //  height: 100%;
+  //  @include OverFlowNoScrollBars();
+  //  cursor: row-resize;
+  //}
 
-.question-card {
-  width: 400px;
-  margin-bottom: 1rem;
+  .question-card {
+    width: 600px;
+    margin-bottom: 1rem;
 
-  .last-content {
-    @include FlexJusCont(row, space-between);
-    align-items: center;
+    .last-content {
+      @include FlexJusCont(row, space-between);
+      align-items: center;
 
-    p {
-      margin: 0!important;
+      p {
+        margin: 0 !important;
+      }
     }
   }
-}
 
-//// CALENDAR /////////////////////////
+  //// CALENDAR /////////////////////////
 
-.calendar-all-container {
-  @include FlexJusCont(row, space-between);
+  .calendar-all-container {
+    @include FlexJusCont(row, space-between);
 
-  .calendar-container {
-    width: 60%;
-  }
+    .calendar-container {
+      width: 60%;
+    }
 
-  .calendar-tasks-container {
-    width: 30%;
+    .calendar-tasks-container {
+      width: 30%;
+    }
   }
 }

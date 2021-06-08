@@ -3,6 +3,7 @@ import { FormGroup, FormControl } from '@angular/forms';
 import {newQuestion} from '../model/newQuestion';
 import {ForumService} from '../service/forum.service';
 import {MAT_DIALOG_DATA} from "@angular/material/dialog";
+import {TokenStorageService} from '../../../_services/token-storage.service';
 
 @Component({
   selector: 'app-new-question',
@@ -18,7 +19,7 @@ export class NewQuestionComponent implements OnInit {
 
   });
 
-  constructor(private forumService: ForumService, @Inject(MAT_DIALOG_DATA) public data: any) {
+  constructor(private forumService: ForumService, private tokenStorage: TokenStorageService, @Inject(MAT_DIALOG_DATA) public data: any) {
     this.formSubmitted = false;
 }
 
@@ -36,8 +37,9 @@ export class NewQuestionComponent implements OnInit {
         userId: '1',
         questionTitle: this.questionForm.controls['questionTitle'].value,
         question: this.questionForm.controls['question'].value,
+        author: this.tokenStorage.getUser().username,
       };
-      console.log(question.question, question.questionTitle);
+      console.log(question.question, question.questionTitle, question.author);
     }
 
     // @ts-ignore

@@ -4,7 +4,7 @@ export interface ForumQuestion {
   id: number;
   questionTitle: string;
   question: string;
-  numberOfAnswers: number;
+  author: string;
   likesQuantity: number;
   date: string;
   forumAnswer: Answer[];

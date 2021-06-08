@@ -9,7 +9,7 @@ import {ForumQuestion} from '../../nav/forum/model/forumQuestion';
 })
 export class BlogDashComponent implements OnInit {
 
-  @Input() blogPosts?: BlogPost[];
+  @Input() blogPost?: BlogPost;
 
   categories = ['Mom', 'Dad', 'Child', 'Home'];
 
@@ -20,7 +20,7 @@ export class BlogDashComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  selected(chip: string) {
-    this.categorySelected = chip;
-  }
+  // selected(chip: string) {
+  //   this.categorySelected = chip;
+  // }
 }

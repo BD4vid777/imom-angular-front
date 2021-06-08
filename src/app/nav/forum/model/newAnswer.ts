@@ -1,8 +1,7 @@
-
 // tslint:disable-next-line:class-name
-export interface newQuestion {
+export interface newAnswer {
   userId: string;
-  questionTitle: string;
-  question: string;
+  questionId: number;
+  answer: string;
   author: string;
 }

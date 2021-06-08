@@ -3,6 +3,7 @@ import {ForumQuestion} from './model/forumQuestion';
 import {ForumService} from './service/forum.service';
 import {MatDialog} from "@angular/material/dialog";
 import {NewQuestionComponent} from "./new-question/new-question.component";
+import {TokenStorageService} from '../../_services/token-storage.service';
 
 @Component({
   selector: 'app-forum',
@@ -14,7 +15,7 @@ export class ForumComponent implements OnInit {
   forumQuestions: ForumQuestion[] = [];
   userQuestions: ForumQuestion[] = [];
   lastAddedQuestions: ForumQuestion[] = [];
-  constructor(private forumService: ForumService, public dialog: MatDialog) { }
+  constructor(private forumService: ForumService, private tokenStorage: TokenStorageService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.forumService.getForumQuestions().subscribe(question => this.forumQuestions = question);

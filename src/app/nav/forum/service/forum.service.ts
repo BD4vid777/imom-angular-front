@@ -4,6 +4,7 @@ import {ForumQuestion} from '../model/forumQuestion';
 import {Observable} from 'rxjs';
 import {newQuestion} from "../model/newQuestion";
 import {catchError} from "rxjs/operators";
+import {newAnswer} from '../model/newAnswer';
 
 @Injectable({
   providedIn: 'root'
@@ -34,5 +35,9 @@ export class ForumService {
 
   postNewQuestion(question: newQuestion, userId: string): Observable<any> {
     return this.webRequestService.post('forum-questions/add_question' + '?userId=' + userId, question);
+  }
+
+  postNewAnswer(answer: newAnswer, userId: string, questionId: string): Observable<any> {
+    return this.webRequestService.post('forum-answers/' + questionId + '?userId=' + userId, answer);
   }
 }

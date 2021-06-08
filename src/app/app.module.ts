@@ -65,6 +65,7 @@ import {NgxSimpleCalendarModule} from 'ngx-simple-calendar';
 import { NewEventComponent } from './nav/calendar/new-event/new-event.component';
 import {MatNativeDateModule} from '@angular/material/core';
 import {CalendarBuildComponent} from './nav/calendar/calendar-build/calendar-build.component';
+import { NewAnswerComponent } from './nav/forum/new-answer/new-answer.component';
 
 
 @NgModule({
@@ -102,6 +103,7 @@ import {CalendarBuildComponent} from './nav/calendar/calendar-build/calendar-bui
     EditTaskComponent,
     NewEventComponent,
     CalendarBuildComponent,
+    NewAnswerComponent,
   ],
   imports: [
     BrowserModule,

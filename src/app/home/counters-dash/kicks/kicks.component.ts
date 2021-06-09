@@ -21,15 +21,17 @@ export class KicksComponent implements OnInit {
 
   increseKicks() {
     this.homeService.increaseKicksCount('1').subscribe();
-    if (this.kicksCount) {
+    if (this.kicksCount !== undefined) {
       this.countChanged.emit(this.kicksCount += 1);
     }
   }
 
   decreaseKicks() {
-    this.homeService.decreaseKicksCount('1').subscribe();
-    if (this.kicksCount) {
-      this.countChanged.emit(this.kicksCount -= 1);
+    if (this.kicksCount !== undefined) {
+      if (this.kicksCount > 0) {
+        this.homeService.decreaseKicksCount('1').subscribe();
+        this.countChanged.emit(this.kicksCount -= 1);
+      }
     }
   }
 }

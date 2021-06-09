@@ -16,7 +16,7 @@ export class BlogComponent implements OnInit {
 
   categories = ['Mom', 'Dad', 'Child', 'Home'];
 
-  categorySelected = '';
+  categorySelected = 'Mom';
 
   constructor(private blogService: BlogService) {
   }

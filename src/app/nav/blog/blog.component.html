@@ -1,7 +1,7 @@
 <mat-card class="view-port">
   <div class="chips-container">
     <mat-chip-list *ngFor="let chip of categories">
-      <mat-chip style="background-color: #3f51b5; color: white" (focus)="selected(chip)" (focusout)="categorySelected=''">{{chip}}</mat-chip>
+      <mat-chip style="background-color: #3f51b5; color: white" (focus)="selected(chip)">{{chip}}</mat-chip>
     </mat-chip-list>
   </div>
   <div class="blog-content-container">
@@ -21,19 +21,19 @@
     <div class="other-articles-container">
       <h1>Other</h1>
       <div>
-        <div *ngIf="categorySelected === ''; else noSelected" class="others-container">
-          <div *ngFor="let post of blogPosts">
-            <mat-card class="blog-post-container">
-              <mat-card-title>{{post.title}}</mat-card-title>
-              <mat-card-content>{{post.text}}</mat-card-content><br>
-              <div class="blog-post-footer">
-                <button mat-raised-button color="primary" [routerLink] = "['/blog/article/', post.id]">Read more</button>
-                <mat-card-footer>{{post.date}}</mat-card-footer>
-              </div>
-            </mat-card>
-          </div>
-        </div>
-        <ng-template #noSelected>
+<!--        <div *ngIf="categorySelected === ''; else noSelected" class="others-container">-->
+<!--          <div *ngFor="let post of blogPosts">-->
+<!--            <mat-card class="blog-post-container">-->
+<!--              <mat-card-title>{{post.title}}</mat-card-title>-->
+<!--              <mat-card-content>{{post.text}}</mat-card-content><br>-->
+<!--              <div class="blog-post-footer">-->
+<!--                <button mat-raised-button color="primary" [routerLink] = "['/blog/article/', post.id]">Read more</button>-->
+<!--                <mat-card-footer>{{post.date}}</mat-card-footer>-->
+<!--              </div>-->
+<!--            </mat-card>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <ng-template #noSelected>-->
           <div class="others-container">
             <div *ngFor="let post of blogPosts" >
               <div *ngIf="post.category === categorySelected">
@@ -48,7 +48,7 @@
               </div>
             </div>
           </div>
-        </ng-template>
+<!--        </ng-template>-->
       </div>
     </div>
 <!--    <div class="things-to-do-container">-->

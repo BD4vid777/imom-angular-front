@@ -1,4 +1,6 @@
 <div *ngIf="kicksCount" class="kicks-container">
   <button mat-raised-button color="primary" (click)="increseKicks()">Kick</button>
+  <button mat-raised-button color="primary" style="width: 7rem; height: 7rem" (click)="decreaseKicks()">-</button>
   <h1>Baby kicked: {{kicksCount}} times</h1>
 </div>
+

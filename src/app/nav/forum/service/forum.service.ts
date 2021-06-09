@@ -48,4 +48,8 @@ export class ForumService {
   likeOrDislikeAnswer(value: boolean, answerId: number, userId: string) {
    return this.webRequestService.post('answer/answer-likes/add-like/' + answerId + '/' + userId + '?value=' + value, '');
   }
+
+  checkQuestionLike(userId: string, questionId: any) {
+    return this.webRequestService.get('question/question-likes/' + questionId + '/' + userId);
+  }
 }

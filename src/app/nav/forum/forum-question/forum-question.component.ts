@@ -13,6 +13,7 @@ import {NewAnswerComponent} from '../new-answer/new-answer.component';
 })
 export class ForumQuestionComponent implements OnInit {
   question?: ForumQuestion;
+  questionLikedOrDisliked?: boolean;
   id: any;
   sub: any;
 
@@ -26,9 +27,16 @@ export class ForumQuestionComponent implements OnInit {
     this.sub = this.Activatedroute.paramMap.subscribe(params => {
       console.log(params);
       this.id = params.get('id');
-      this.forumService.getForumQuestionById(this.id).subscribe(question => this.question = question);
-    });
-    }
+      this.forumService.getForumQuestionById(this.id).subscribe(question => {
+        this.question = question;
+        this.forumService.checkQuestionLike('1', this.id).subscribe(result => {
+          if (result != null) {
+              this.questionLikedOrDisliked = true;
+            }
+          });
+        });
+      });
+  }
 
   addAnswerDialog() {
     this.dialog.open(NewAnswerComponent,{width: '800px', data: {questionId: this.id}});

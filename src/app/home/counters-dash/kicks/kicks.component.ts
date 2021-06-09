@@ -2,6 +2,7 @@ import {ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, Output, Ev
 import {PregnancyInfo} from '../../../models/pregnancyInfo';
 import {HomeService} from '../../service/home.service';
 import {ActivatedRoute} from '@angular/router';
+import {TokenStorageService} from '../../../_services/token-storage.service';
 
 @Component({
   selector: 'app-kicks',
@@ -13,7 +14,7 @@ export class KicksComponent implements OnInit {
   @Input() kicksCount?: number;
   @Output() countChanged: EventEmitter<number> =   new EventEmitter();
 
-  constructor(private homeService: HomeService, private route: ActivatedRoute) { }
+  constructor(private homeService: HomeService, private route: ActivatedRoute, private tokenStorage: TokenStorageService) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +23,13 @@ export class KicksComponent implements OnInit {
     this.homeService.increaseKicksCount('1').subscribe();
     if (this.kicksCount) {
       this.countChanged.emit(this.kicksCount += 1);
+    }
+  }
+
+  decreaseKicks() {
+    this.homeService.decreaseKicksCount('1').subscribe();
+    if (this.kicksCount) {
+      this.countChanged.emit(this.kicksCount -= 1);
     }
   }
 }

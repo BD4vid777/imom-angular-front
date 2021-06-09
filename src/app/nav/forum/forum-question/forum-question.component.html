@@ -7,6 +7,10 @@
       <br>
       <h2>{{question.question}}</h2>
       <h3>Author: {{question.author}}</h3>
+      <div class="question-like-dislike">
+        <button mat-raised-button color="primary" (click)="likeOrDislikeQuestion(true)">Like</button>
+        <button mat-raised-button color="primary" (click)="likeOrDislikeQuestion(false)">Dislike</button>
+      </div>
       <p><mat-icon class="material-icons menu-icon">thumb_up_off_alt</mat-icon>{{question.likesQuantity}}</p>
     </mat-card>
     <div *ngIf="question.forumAnswer.length > 0; else elseBlock">
@@ -17,6 +21,10 @@
         <mat-card class="question-card">
           <h2>{{answer.answer}}</h2>
           <h3>Author: {{answer.author}}</h3>
+          <div class="answer-like-dislike">
+            <button mat-raised-button color="primary" (click)="likeOrDislikeAnswer(answer.id, true)">Like</button>
+            <button mat-raised-button color="primary" (click)="likeOrDislikeAnswer(answer.id, false)">Dislike</button>
+          </div>
           <p><mat-icon class="material-icons menu-icon">thumb_up_off_alt</mat-icon>{{answer.likesQuantity}}</p>
         </mat-card>
         <br>

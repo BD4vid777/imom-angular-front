@@ -27,11 +27,20 @@ export class ForumQuestionComponent implements OnInit {
       console.log(params);
       this.id = params.get('id');
       this.forumService.getForumQuestionById(this.id).subscribe(question => this.question = question);
-
     });
     }
 
-  addAnswerDialog(questionId: number) {
+  addAnswerDialog() {
     this.dialog.open(NewAnswerComponent,{width: '800px', data: {questionId: this.id}});
+  }
+
+  likeOrDislikeQuestion(value: boolean) {
+    this.forumService.likeOrDislikeQuestion(value, this.id, '1').subscribe();
+    window.location.reload();
+  }
+
+  likeOrDislikeAnswer(answerId: number, value: boolean) {
+    this.forumService.likeOrDislikeAnswer(value, answerId, '1').subscribe();
+    window.location.reload();
   }
 }

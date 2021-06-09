@@ -19,7 +19,7 @@ import {LoginPageComponent} from "../login-page/login-page.component";
 })
 export class HomeComponent implements OnInit {
 
-  blogPosts: BlogPost[] = [];
+  blogPost!: BlogPost;
   foodList: Food[] = [];
   kicksCount!: number;
   countContractions!: number;
@@ -63,7 +63,8 @@ export class HomeComponent implements OnInit {
     this.homeService.getCountContractions('1').subscribe(countContractions => this.countContractions = countContractions);
     this.homeService.getLastContraction('1').subscribe(lastContraction => this.lastContraction = lastContraction);
     this.homeService.getKicksCount('1').subscribe(kicksCount => this.kicksCount = kicksCount);
-    this.blogService.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
+    // this.blogService.getBlogPosts().subscribe(blogPosts => this.blogPosts = blogPosts);
+    this.blogService.getTopicOfTheDay().subscribe(blogPosts => this.blogPost = blogPosts);
     this.foodService.getFood().subscribe(foodList => this.foodList = foodList);
     this.homeService.getUserNotes('1').subscribe(userNotes => this.userNotes = userNotes);
   }

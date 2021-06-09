@@ -1,7 +1,15 @@
 <div *ngIf="article">
-  <mat-card class="blog-post-container">
+  <mat-card class="blog-post">
     <mat-card-title>{{article.title}}</mat-card-title>
-    <mat-card> class="blog-post">{{article.text}}</mat-card><br>
+    <mat-card> {{article.text}}
+      <br>
+      <div *ngIf="article.id==6">
+      <img class="center" src="https://3.allegroimg.com/original/12d0bd/e3a8abaf4030bedff9db43ce6ec3">
+      </div>
+      <div *ngIf="article.id==5">
+        <img class="center" src="https://mamopracuj.pl/wp-content/uploads/2018/03/mezczyzna_wspiera_partnerke_w_ciazy_800.jpg">
+      </div>
+    </mat-card><br>
     <mat-card-footer >{{article.date}}</mat-card-footer>
   </mat-card>
 </div>

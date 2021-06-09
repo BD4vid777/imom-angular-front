@@ -654,7 +654,13 @@ body, h1, h2, h3, p {
   font-size: large;
   line-height: 2;
 }
-
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+}
 .blog-content-container {
   height: 93%;
   margin-top: 2rem;

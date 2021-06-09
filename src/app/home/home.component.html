@@ -30,7 +30,7 @@
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.blog.cols" [rowspan]="(cardLayout | async)!.blog.rows">
       <mat-card class="dashboard-card">
-        <app-blog-dash [blogPosts] = "blogPosts"></app-blog-dash>
+        <app-blog-dash [blogPost] = "blogPost"></app-blog-dash>
       </mat-card>
     </mat-grid-tile>
     <mat-grid-tile [colspan]="(cardLayout | async)!.food.cols" [rowspan]="(cardLayout | async)!.food.rows">

@@ -40,4 +40,16 @@ export class ForumService {
   postNewAnswer(answer: newAnswer, userId: string, questionId: string): Observable<any> {
     return this.webRequestService.post('forum-answers/' + questionId + '?userId=' + userId, answer);
   }
+
+  likeOrDislikeQuestion(value: boolean, questionId: number, userId: string) {
+    return this.webRequestService.post('question/question-likes/add-like/' + questionId + '/' + userId + '?value=' + value, '');
+  }
+
+  likeOrDislikeAnswer(value: boolean, answerId: number, userId: string) {
+   return this.webRequestService.post('answer/answer-likes/add-like/' + answerId + '/' + userId + '?value=' + value, '');
+  }
+
+  checkQuestionLike(userId: string, questionId: any) {
+    return this.webRequestService.get('question/question-likes/' + questionId + '/' + userId);
+  }
 }

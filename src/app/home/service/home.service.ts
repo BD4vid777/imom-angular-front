@@ -27,6 +27,12 @@ export class HomeService {
     return this.webRequestService.post('users/' + userId + '/increase-kicks', '');
   }
 
+  decreaseKicksCount(userId: string): Observable<any> {
+    return this.webRequestService.post('users/' + userId + '/decrease-kicks', '');
+  }
+
+
+
   postNewNote(note: Note, userId: string): Observable<any> {
     return this.webRequestService.post('diaries' + '?userId=' + userId, note);
   }

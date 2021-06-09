@@ -9,9 +9,7 @@ import {ForumQuestion} from '../../nav/forum/model/forumQuestion';
 })
 export class BlogDashComponent implements OnInit {
 
-  @Input() blogPost?: BlogPost;
-
-  categories = ['Mom', 'Dad', 'Child', 'Home'];
+  @Input() blogPost!: BlogPost;
 
   categorySelected = '';
 
